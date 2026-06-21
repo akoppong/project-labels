@@ -73,7 +73,7 @@ Target mix for $500 MRR:
 
 - 10 Pro customers = $249.70 MRR.
 - 3 Business customers = $237 MRR.
-- Total = $527 MRR.
+- Total = $486.70 MRR.
 
 Fallback cash target if subscription conversion is slower:
 
