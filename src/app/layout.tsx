@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from 'next/font/google';
+import Script from 'next/script';
 import type { Metadata } from 'next';
 import './globals.css';
 
@@ -25,9 +26,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
+  const umamiScriptUrl =
+    process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL ?? 'https://analytics.umami.is/script.js';
+
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        {children}
+        {umamiWebsiteId && (
+          <Script
+            src={umamiScriptUrl}
+            data-website-id={umamiWebsiteId}
+            strategy="afterInteractive"
+          />
+        )}
+      </body>
     </html>
   );
 }
