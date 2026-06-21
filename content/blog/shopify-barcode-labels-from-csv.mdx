@@ -6,77 +6,91 @@ publishedAt: "2026-06-21"
 updatedAt: "2026-06-21"
 tags: ["Shopify", "barcode labels", "CSV", "inventory"]
 keyword: shopify barcode labels from csv
-intent: platform-specific workflow
+intent: informational
 draft: false
 ---
 
-Shopify lets you export your full product catalog as a CSV. That export includes your SKUs, titles, and any custom identifiers you have set up. You do not need a Shopify app or a third-party integration to turn that data into printable barcode labels.
+Shopify does not print Avery 5160 barcode labels natively. Its built-in barcode feature generates individual labels within the admin, which works for printing one or two labels for a specific variant. For printing labels across your full product catalog or a large inventory batch, you need to work from the CSV export.
 
-This guide walks through the export and the label generation in order.
+This guide explains what the Shopify export contains, which columns to use, and how to turn that CSV into a print-ready barcode label PDF.
+
+## What the Shopify product export CSV contains
+
+When you export products from Shopify, you get a flat CSV where each row represents one product variant. A product with three sizes will appear as three rows, each sharing the same title but with a different `Variant SKU` and `Variant Barcode`.
+
+The columns that matter most for barcode labels:
+
+| Column | What it contains | When to use it |
+|---|---|---|
+| `Variant SKU` | Your internal stock-keeping unit | Best for internal inventory labels |
+| `Variant Barcode` | Barcode value entered in Shopify (if any) | If you already have barcodes in Shopify |
+| `Title` | Product name | Use as label text, not as the barcode value |
+| `Handle` | URL slug for the product | Rarely useful for labels |
+
+For most internal labeling workflows, `Variant SKU` is the right column. If `Variant SKU` is blank for some products, those rows will produce blank labels, so fill them in or filter them out before pasting.
 
 ## Step 1: Export your products from Shopify
 
 In your Shopify admin, go to Products > All products. Click Export in the top right.
 
 In the export dialog:
-
 - Choose which products to include: all products, the current page, or selected items
 - Select "CSV for Excel, Numbers, or other spreadsheet applications"
 - Click Export products
 
 Shopify will email you a download link for the CSV file.
 
-## Step 2: Find the right column in the export
+## Step 2: Decide how to handle variants
 
-Shopify's product export CSV has many columns. The most useful ones for barcode labels are:
+Shopify exports one row per variant. A product with Small, Medium, and Large options appears as three rows. Before pasting, decide what you actually need:
 
-- **Variant SKU**: your internal product identifier, the most common choice for label workflows
-- **Handle**: the URL-friendly product name, useful as a secondary identifier
-- **Variant Barcode**: any barcode value you have already entered in Shopify
+**One label per variant**: paste the export as-is. Each variant gets its own label. This is right if your picking and labeling process is variant-specific.
 
-For internal inventory labeling, `Variant SKU` is usually the right column. If you have already entered barcode values in Shopify, use `Variant Barcode` instead.
+**One label per product**: open the CSV in Excel or Google Sheets, filter to one row per product (for example, delete duplicate rows where the title matches), and save as CSV. This works when your SKUs are product-level identifiers rather than variant-level ones.
 
-## Step 3: Clean up the CSV if needed
+## Step 3: Clean up the export
 
-Shopify product exports often include multiple rows per product (one per variant combination: size, color, material). If multiple variants share the same SKU, you may want to remove duplicate rows.
+A few things commonly need fixing before pasting:
 
-Open the CSV in Excel or Google Sheets, remove or filter the rows you do not want labels for, and save it again as CSV before pasting.
+- Remove rows where `Variant SKU` is blank, or fill in the missing SKUs first
+- Delete the second header row if Shopify included column descriptions below the headers
+- If you only want labels for specific products, filter the CSV to those rows
 
 ## Step 4: Paste the CSV and preview labels
 
 Go to [Shopify barcode labels](/shopify-barcode-labels-from-csv) and paste your cleaned CSV.
 
-Select `Variant SKU` (or whichever column contains your identifier) as the barcode column. The live preview shows you the full label sheet immediately. Each row generates one Code 128 barcode label on a standard Avery 5160 layout.
+Select `Variant SKU` as the barcode column. The live preview shows you the full Avery 5160 label sheet immediately. Each row produces one Code 128 barcode label. If you want the product title printed on the label alongside the barcode, you can include the `Title` column as label text.
 
 ## Step 5: Export the PDF
 
-Once the preview looks correct, export to PDF. Print on Avery 5160 label sheets using US Letter paper.
+Once the preview looks correct, export to PDF and print on Avery 5160 label sheets using US Letter paper.
 
-## Important: this is not a Shopify app
+## SKU labels versus retail barcodes
 
-This tool does not connect to your Shopify store directly. It does not sync inventory, update product records, or install into your Shopify admin. The workflow is entirely offline: export from Shopify, paste the CSV, generate labels.
+Barcode labels generated from Shopify SKUs are for internal use. They work for warehouse shelves, storage bins, pick-and-pack workflows, and internal tracking.
 
-That separation is intentional. You get printable barcode labels from your existing export without adding another app to manage or maintain.
+If you sell through retail channels that require official UPC or GTIN barcodes on product packaging, those identifiers must come from GS1. Your Shopify SKU field is not a GS1 identifier.
 
-## When to use this vs. official retail barcodes
+## This tool does not connect to Shopify
 
-SKU labels generated from this tool are for internal inventory tracking. If you sell through retail channels that require official UPC or GTIN barcodes on product packaging, those identifiers need to come from GS1.
+This tool reads CSV data you paste into it. It does not sync with your Shopify store, read your inventory levels, or install into your Shopify admin. The workflow is entirely local: export from Shopify, paste the CSV, generate labels.
 
-For internal labeling (warehouse shelves, storage bins, pick-and-pack workflows), Code 128 labels from your SKU data are the right fit.
+That limitation is also its strength: no OAuth approval, no app permissions, no ongoing access to your store data.
 
 ## FAQ
 
-**What if my Shopify SKUs contain special characters?**
+**My Shopify SKUs contain special characters. Will they encode correctly?**
 
-Code 128 supports most standard characters used in SKU formats: letters, numbers, hyphens, underscores, and dots. Check the preview to confirm your specific format renders correctly.
+Code 128 supports letters, numbers, hyphens, underscores, and most standard characters used in SKU formats. Paste a small test batch first and confirm the preview looks correct before printing your full run.
 
-**My export has hundreds of variants. Do I need to print a label for every one?**
+**My export has hundreds of variants. Do I need a label for every one?**
 
-No. Filter the CSV to the rows you need before pasting. Delete rows for variants you do not want to label, save the file as CSV, and paste the cleaned version.
+No. Open the CSV in Excel or Google Sheets, delete the rows you do not need, save as CSV, and paste the filtered version. Targeting specific products or variants is always an option.
 
-**Can I use this for Shopify locations or multi-location inventory?**
+**Can I include both the SKU and the product name on each label?**
 
-The export covers your product list. If you need location-specific information on labels, add a location column to your spreadsheet before pasting, and include it as label text alongside the SKU barcode.
+Yes. Select `Variant SKU` as the barcode column and include `Title` as label text. Check the preview to confirm both fit within the Avery 5160 label boundary, which is 2.625 by 1 inch.
 
 ---
 
