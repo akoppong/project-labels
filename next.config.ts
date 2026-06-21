@@ -4,8 +4,10 @@ import type { NextConfig } from 'next';
 import { formatValidationSummary, validateEnvironment } from './scripts/validate-env.js';
 
 const rootDirectory = path.dirname(fileURLToPath(import.meta.url));
+// Strict only on real Vercel production deployments.
+// Preview builds (VERCEL_ENV=preview) and local builds do not require Stripe URLs.
 const environmentValidation = validateEnvironment(process.env, {
-  strict: process.env.NODE_ENV === 'production'
+  strict: process.env.VERCEL_ENV === 'production'
 });
 
 if (!environmentValidation.ok) {
