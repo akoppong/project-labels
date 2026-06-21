@@ -11,6 +11,7 @@ const customJestConfig = {
   // never picked up by Jest (testPathIgnorePatterns alone is unreliable on
   // Windows due to backslash path normalisation in Jest's regex engine).
   testRegex: ['src/.*\\.test\\.[jt]sx?$', 'scripts/.*\\.test\\.[jt]sx?$'],
+  roots: ['<rootDir>/src', '<rootDir>/scripts'],
   testPathIgnorePatterns: ['<rootDir>/tests/e2e/'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1'
