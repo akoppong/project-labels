@@ -3,7 +3,7 @@
 ## User-Owned Actions
 
 - Approve the launch plan.
-- Create two Stripe Payment Links: $19 Export Pass and $29/month Pro.
+- Create two Stripe Payment Links: $19.97 Export Pass and $24.97/month Pro.
 - Connect the repo to Vercel or Netlify.
 - Point a production domain if available.
 - Approve or lightly edit the outreach copy before it is sent.

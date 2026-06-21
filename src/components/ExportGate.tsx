@@ -60,7 +60,7 @@ export function ExportGate({ rowCount, unlocked, rows = [] }: ExportGateProps) {
             href={exportPassCheckoutUrl}
             onClick={() => trackEvent('checkout_clicked', { plan: 'export-pass' })}
           >
-            <span className="text-2xl font-extrabold text-[var(--accent)]">$19</span>
+            <span className="text-2xl font-extrabold text-[var(--accent)]">$19.97</span>
             <strong>Export Pass</strong>
             <small>7 days of clean PDF exports</small>
           </Link>
@@ -69,7 +69,7 @@ export function ExportGate({ rowCount, unlocked, rows = [] }: ExportGateProps) {
             href={proCheckoutUrl}
             onClick={() => trackEvent('checkout_clicked', { plan: 'pro' })}
           >
-            <span className="text-2xl font-extrabold text-[var(--accent)]">$29/mo</span>
+            <span className="text-2xl font-extrabold text-[var(--accent)]">$24.97/mo</span>
             <strong>Pro</strong>
             <small>Unlimited validation-phase exports</small>
           </Link>
