@@ -1,6 +1,11 @@
 import { cleanup, render, screen } from '@testing-library/react';
-import { afterEach, describe, expect, it } from '@jest/globals';
+import { afterEach, beforeEach, describe, expect, it } from '@jest/globals';
 import { ExportGate } from './ExportGate';
+
+beforeEach(() => {
+  delete process.env.NEXT_PUBLIC_STRIPE_EXPORT_PASS_LINK;
+  delete process.env.NEXT_PUBLIC_STRIPE_PRO_LINK;
+});
 
 afterEach(() => {
   delete process.env.NEXT_PUBLIC_STRIPE_EXPORT_PASS_LINK;
