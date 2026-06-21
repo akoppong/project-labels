@@ -5,6 +5,7 @@ import { CsvInput } from '@/components/CsvInput';
 import { ExportGate } from '@/components/ExportGate';
 import { LabelPreview } from '@/components/LabelPreview';
 import { PreviewTable } from '@/components/PreviewTable';
+import { trackEvent } from '@/lib/analytics';
 import { parseCsv } from '@/lib/csv';
 import { isUnlockedFromSearch } from '@/lib/unlock';
 
@@ -36,20 +37,21 @@ export function WorkflowClient() {
   }, []);
 
   async function handleFileUpload(file: File) {
+    let text: string;
+
     if (typeof file.text === 'function') {
-      setCsv(await file.text());
-      return;
-    }
-
-    setCsv(
-      await new Promise<string>((resolve, reject) => {
+      text = await file.text();
+    } else {
+      text = await new Promise<string>((resolve, reject) => {
         const reader = new FileReader();
-
         reader.onload = () => resolve(String(reader.result ?? ''));
         reader.onerror = () => reject(reader.error ?? new Error('Failed to read CSV file.'));
         reader.readAsText(file);
-      })
-    );
+      });
+    }
+
+    setCsv(text);
+    trackEvent('csv_uploaded', { source: 'file_upload' });
   }
 
   return (
@@ -57,7 +59,10 @@ export function WorkflowClient() {
       <div>
         <button
           className="inline-flex items-center rounded-full bg-[var(--foreground)] px-5 py-3 text-sm font-semibold text-[var(--background)]"
-          onClick={() => setCsv(sampleCsv)}
+          onClick={() => {
+            setCsv(sampleCsv);
+            trackEvent('csv_uploaded', { source: 'sample' });
+          }}
           type="button"
         >
           Paste sample CSV
@@ -68,7 +73,7 @@ export function WorkflowClient() {
         <>
           <PreviewTable rows={parsed.rows} errors={parsed.errors} />
           <LabelPreview rows={parsed.rows} />
-          <ExportGate rowCount={parsed.rows.length} unlocked={unlocked} />
+          <ExportGate rowCount={parsed.rows.length} unlocked={unlocked} rows={parsed.rows} />
         </>
       )}
     </section>
