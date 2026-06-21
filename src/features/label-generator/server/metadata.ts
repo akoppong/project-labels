@@ -6,12 +6,23 @@ export function buildPageMetadata(slug?: string): Metadata {
 
   if (!page) {
     return {
-      title: 'Not Found'
+      title: 'Not Found',
     };
   }
 
+  const canonicalPath = slug ? `/${slug}` : '/';
+
   return {
     title: page.title,
-    description: page.description
+    description: page.description,
+    alternates: {
+      canonical: canonicalPath,
+    },
+    openGraph: {
+      title: page.title,
+      description: page.description,
+      url: canonicalPath,
+      type: 'website',
+    },
   };
 }
