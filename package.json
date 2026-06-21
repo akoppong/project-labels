@@ -1,0 +1,48 @@
+{
+  "name": "csvtolabels",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "prepare": "node scripts/setup-git-hooks.mjs",
+    "env:check": "node scripts/validate-env.js",
+    "lint": "eslint .",
+    "lint:design": "node scripts/check-no-page-styles.mjs",
+    "test": "jest --runInBand",
+    "test:coverage": "jest --coverage --runInBand",
+    "test:watch": "jest --watch",
+    "test:smoke": "playwright test",
+    "verify": "node scripts/run-verify.js"
+  },
+  "engines": {
+    "node": "22.17.1"
+  },
+  "dependencies": {
+    "bwip-js": "^4.5.1",
+    "jspdf": "^3.0.1",
+    "next": "^16.0.0",
+    "papaparse": "^5.5.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.1",
+    "@tailwindcss/postcss": "^4.1.11",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/jest": "^30.0.0",
+    "@types/papaparse": "^5.3.16",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "eslint": "^9.30.0",
+    "eslint-config-next": "^16.0.0",
+    "jest": "^30.4.2",
+    "jest-environment-jsdom": "^30.4.1",
+    "jsdom": "^26.1.0",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.8.3"
+  }
+}

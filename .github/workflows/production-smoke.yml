@@ -1,0 +1,45 @@
+name: Production Smoke
+
+on:
+  deployment_status:
+
+jobs:
+  smoke:
+    if: >
+      github.event.deployment_status.state == 'success' &&
+      github.event.deployment.environment == 'Production'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node from .nvmrc
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Verify production deployment URL exists
+        run: |
+          test -n "${PRODUCTION_URL}" || (echo "Missing production deployment URL from deployment_status event." && exit 1)
+        env:
+          PRODUCTION_URL: ${{ github.event.deployment_status.environment_url }}
+
+      - name: Run production smoke suite
+        env:
+          PLAYWRIGHT_BASE_URL: ${{ github.event.deployment_status.environment_url }}
+        run: npm run test:smoke
+
+      - name: Upload Playwright report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-playwright-report
+          path: playwright-report

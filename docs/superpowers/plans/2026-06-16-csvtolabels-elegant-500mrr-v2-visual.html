@@ -1,0 +1,1455 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>csvtolabels.com $500 MRR Plan - Visual Review</title>
+  <style>
+    :root {
+      --ink: #18211c;
+      --ink-soft: #405047;
+      --paper: #f7f0df;
+      --paper-2: #fffaf0;
+      --card: rgba(255, 250, 240, 0.9);
+      --line: rgba(24, 33, 28, 0.16);
+      --line-strong: rgba(24, 33, 28, 0.32);
+      --green: #23553e;
+      --green-soft: #d6e6ce;
+      --gold: #d8912c;
+      --gold-soft: #f3d08e;
+      --rust: #a9512b;
+      --rust-soft: #f2c5ae;
+      --blue: #245c73;
+      --blue-soft: #c9e2e7;
+      --cream: #fff6dd;
+      --shadow: 0 24px 70px rgba(24, 33, 28, 0.12);
+      --radius-lg: 30px;
+      --radius-md: 20px;
+      --radius-sm: 12px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(216, 145, 44, 0.25), transparent 28rem),
+        radial-gradient(circle at 88% 18%, rgba(36, 92, 115, 0.18), transparent 28rem),
+        linear-gradient(135deg, #f2dfb5 0%, #f8f0dd 42%, #dce8d4 100%);
+      font-family: "Avenir Next", "Gill Sans", "Trebuchet MS", sans-serif;
+      line-height: 1.52;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.24;
+      background-image:
+        linear-gradient(90deg, rgba(24, 33, 28, 0.08) 1px, transparent 1px),
+        linear-gradient(rgba(24, 33, 28, 0.06) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(to bottom, black, transparent 70%);
+    }
+
+    a {
+      color: var(--green);
+      text-decoration-color: rgba(35, 85, 62, 0.35);
+      text-underline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 70px;
+      position: relative;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 26px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 250, 240, 0.68);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 14px;
+      z-index: 10;
+      box-shadow: 0 10px 34px rgba(24, 33, 28, 0.08);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      color: var(--paper-2);
+      background: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      flex: 0 0 auto;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: var(--ink-soft);
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .nav a:hover {
+      border-color: var(--line);
+      color: var(--ink);
+      background: rgba(255, 250, 240, 0.72);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap: 28px;
+      align-items: stretch;
+      padding: 46px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(135deg, rgba(255, 250, 240, 0.86), rgba(245, 224, 184, 0.82)),
+        radial-gradient(circle at top right, rgba(35, 85, 62, 0.16), transparent 24rem);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      bottom: -170px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      border: 48px solid rgba(216, 145, 44, 0.16);
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 8px 12px;
+      margin: 0 0 18px;
+      border: 1px solid rgba(35, 85, 62, 0.22);
+      border-radius: 999px;
+      color: var(--green);
+      background: rgba(214, 230, 206, 0.68);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      letter-spacing: -0.055em;
+      line-height: 0.96;
+    }
+
+    h1 {
+      max-width: 800px;
+      font-size: clamp(52px, 7vw, 94px);
+    }
+
+    h2 {
+      font-size: clamp(34px, 4vw, 58px);
+    }
+
+    h3 {
+      font-size: clamp(24px, 2.4vw, 34px);
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .lede {
+      max-width: 710px;
+      margin-top: 22px;
+      color: var(--ink-soft);
+      font-size: clamp(18px, 2vw, 23px);
+      line-height: 1.34;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--ink);
+      color: var(--paper-2);
+      background: var(--ink);
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 12px 26px rgba(24, 33, 28, 0.14);
+    }
+
+    .button.secondary {
+      color: var(--ink);
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .hero-panel {
+      position: relative;
+      z-index: 1;
+      padding: 24px;
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      background: rgba(255, 250, 240, 0.76);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    }
+
+    .verdict {
+      display: grid;
+      gap: 12px;
+    }
+
+    .verdict-row {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .dot {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      color: var(--paper-2);
+      background: var(--green);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .dot.warn {
+      background: var(--rust);
+    }
+
+    .dot.gold {
+      background: var(--gold);
+    }
+
+    .label {
+      color: var(--ink-soft);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .value {
+      margin-top: 2px;
+      font-weight: 900;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .section {
+      margin-top: 34px;
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 250, 240, 0.78);
+      box-shadow: 0 14px 48px rgba(24, 33, 28, 0.08);
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(280px, 0.55fr);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 26px;
+    }
+
+    .section-header p {
+      color: var(--ink-soft);
+      font-size: 17px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid.cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid.cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--card);
+      min-height: 100%;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card p,
+    .card li {
+      color: var(--ink-soft);
+    }
+
+    .metric {
+      padding: 22px;
+      border-radius: var(--radius-md);
+      background:
+        linear-gradient(135deg, rgba(35, 85, 62, 0.95), rgba(36, 92, 115, 0.88));
+      color: var(--paper-2);
+      box-shadow: 0 18px 42px rgba(35, 85, 62, 0.18);
+    }
+
+    .metric .number {
+      display: block;
+      margin: 10px 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+    }
+
+    .metric p {
+      color: rgba(255, 250, 240, 0.78);
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0;
+      margin: 16px 0 0;
+      list-style: none;
+    }
+
+    .pill-list li {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.34);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(255, 250, 240, 0.82);
+    }
+
+    table {
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 15px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--ink);
+      background: rgba(35, 85, 62, 0.1);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    td {
+      color: var(--ink-soft);
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .num {
+      color: var(--ink);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .diagram {
+      padding: 24px;
+      border: 1px dashed var(--line-strong);
+      border-radius: var(--radius-md);
+      background:
+        linear-gradient(135deg, rgba(255, 246, 221, 0.88), rgba(214, 230, 206, 0.5));
+      overflow: hidden;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .flow-card {
+      position: relative;
+      padding: 18px 16px;
+      min-height: 130px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 250, 240, 0.86);
+    }
+
+    .flow-card:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -17px;
+      width: 20px;
+      height: 2px;
+      background: var(--green);
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    .flow-card strong {
+      display: block;
+      margin: 8px 0;
+      font-size: 18px;
+      line-height: 1.1;
+    }
+
+    .flow-card span {
+      color: var(--ink-soft);
+      font-size: 13px;
+    }
+
+    .flow-index {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      color: var(--paper-2);
+      background: var(--ink);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .funnel {
+      display: grid;
+      gap: 12px;
+    }
+
+    .funnel-row {
+      display: grid;
+      grid-template-columns: 150px 1fr 110px;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .bar {
+      height: 46px;
+      border-radius: 999px;
+      background: rgba(24, 33, 28, 0.08);
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--green), var(--gold));
+    }
+
+    .scenario {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .mini {
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 250, 240, 0.72);
+    }
+
+    .mini strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 18px;
+    }
+
+    .mini span {
+      color: var(--ink-soft);
+    }
+
+    .architecture {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.9fr) minmax(280px, 1.3fr) minmax(220px, 0.9fr);
+      gap: 16px;
+      align-items: center;
+    }
+
+    .stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .node {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255, 250, 240, 0.88);
+    }
+
+    .node strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .node span {
+      color: var(--ink-soft);
+      font-size: 13px;
+    }
+
+    .center-node {
+      padding: 24px;
+      border-radius: 24px;
+      border: 2px solid rgba(35, 85, 62, 0.35);
+      background: linear-gradient(135deg, rgba(214, 230, 206, 0.92), rgba(255, 250, 240, 0.88));
+      text-align: center;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+
+    .center-node h3 {
+      margin-bottom: 10px;
+    }
+
+    .arrow-note {
+      color: var(--ink-soft);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .scope-board {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .scope-list {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .scope-list li {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .scope-list li:last-child {
+      border-bottom: 0;
+    }
+
+    .mark {
+      display: grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      color: var(--paper-2);
+      background: var(--green);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .mark.no {
+      background: var(--rust);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .time-block {
+      display: grid;
+      grid-template-columns: 110px 1fr minmax(190px, 0.5fr);
+      gap: 18px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255, 250, 240, 0.82);
+    }
+
+    .day {
+      color: var(--paper-2);
+      background: var(--ink);
+      border-radius: 16px;
+      padding: 12px;
+      text-align: center;
+      font-weight: 900;
+    }
+
+    .time-block h3 {
+      margin-bottom: 8px;
+      font-size: 26px;
+    }
+
+    .time-block p {
+      color: var(--ink-soft);
+    }
+
+    .exit {
+      padding: 12px;
+      border-radius: 14px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .decision-tree {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .decision {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 250, 240, 0.86);
+      min-height: 170px;
+    }
+
+    .decision strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .decision span {
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    .status-good {
+      border-top: 7px solid var(--green);
+    }
+
+    .status-watch {
+      border-top: 7px solid var(--gold);
+    }
+
+    .status-stop {
+      border-top: 7px solid var(--rust);
+    }
+
+    .quote {
+      padding: 24px;
+      border-radius: 24px;
+      color: var(--paper-2);
+      background:
+        linear-gradient(135deg, rgba(24, 33, 28, 0.96), rgba(35, 85, 62, 0.92));
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(24px, 3vw, 40px);
+      line-height: 1.08;
+      letter-spacing: -0.045em;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 18px;
+    }
+
+    .scorecard {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .score-item {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: rgba(255, 250, 240, 0.82);
+    }
+
+    .score-item span {
+      display: block;
+      color: var(--ink-soft);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .score-item strong {
+      display: block;
+      margin-top: 6px;
+      font-size: 20px;
+    }
+
+    .footer {
+      margin-top: 34px;
+      padding: 24px;
+      color: var(--ink-soft);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(255, 250, 240, 0.72);
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .section-header,
+      .architecture,
+      .review-grid,
+      .scope-board,
+      .scenario {
+        grid-template-columns: 1fr;
+      }
+
+      .grid.cols-2,
+      .grid.cols-3,
+      .grid.cols-4,
+      .decision-tree,
+      .scorecard {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-card:not(:last-child)::after {
+        top: auto;
+        right: auto;
+        left: 28px;
+        bottom: -8px;
+        width: 2px;
+        height: 16px;
+      }
+
+      .time-block {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        width: min(100% - 18px, var(--max));
+        padding-top: 10px;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        border-radius: 22px;
+        flex-direction: column;
+        position: static;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .hero,
+      .section {
+        padding: 22px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+
+      .grid.cols-2,
+      .grid.cols-3,
+      .grid.cols-4,
+      .decision-tree,
+      .scorecard {
+        grid-template-columns: 1fr;
+      }
+
+      .funnel-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+    }
+
+    @media print {
+      .topbar,
+      .hero-actions {
+        display: none;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      body::before {
+        display: none;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      .hero,
+      .section,
+      .footer {
+        break-inside: avoid;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar" aria-label="Plan navigation">
+      <div class="brand">
+        <span class="brand-mark">L</span>
+        <span>csvtolabels.com Visual Plan</span>
+      </div>
+      <nav class="nav">
+        <a href="#verdict">Verdict</a>
+        <a href="#demand">Demand</a>
+        <a href="#funnel">Funnel</a>
+        <a href="#architecture">Build</a>
+        <a href="#timeline">21 Days</a>
+        <a href="#decisions">Decisions</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="verdict">
+      <div>
+        <p class="kicker">Source: 2026-06-16 plan markdown</p>
+        <h1>The simplest path is a paid export utility, not a barcode SaaS.</h1>
+        <p class="lede">
+          Build one workflow that turns a CSV into printable Avery 5160 Code 128 labels.
+          Let users preview for free, then charge at the moment they need the clean PDF.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="#timeline">Review execution plan</a>
+          <a class="button secondary" href="2026-06-16-csvtolabels-elegant-500mrr-v2.md">Open source markdown</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel" aria-label="Plan verdict">
+        <div class="verdict">
+          <div class="verdict-row">
+            <span class="dot">1</span>
+            <div>
+              <div class="label">Primary bet</div>
+              <div class="value">CSV &rarr; label preview &rarr; paid PDF export</div>
+            </div>
+          </div>
+          <div class="verdict-row">
+            <span class="dot gold">2</span>
+            <div>
+              <div class="label">Revenue target</div>
+              <div class="value">$500/month within 3 weeks</div>
+            </div>
+          </div>
+          <div class="verdict-row">
+            <span class="dot">3</span>
+            <div>
+              <div class="label">Infrastructure</div>
+              <div class="value">Static client app, no backend, no auth</div>
+            </div>
+          </div>
+          <div class="verdict-row">
+            <span class="dot warn">4</span>
+            <div>
+              <div class="label">Pressure test</div>
+              <div class="value">Possible, but not median without targeted traffic</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <p class="kicker">Strategic Distillation</p>
+          <h2>Keep the wedge painfully narrow.</h2>
+        </div>
+        <p>
+          The plan only works if the product avoids support-heavy complexity and catches users at the exact pain point:
+          they already have product codes and need labels printed now.
+        </p>
+      </div>
+
+      <div class="diagram">
+        <div class="flow" aria-label="Product workflow diagram">
+          <div class="flow-card">
+            <span class="flow-index">1</span>
+            <strong>Paste or upload CSV</strong>
+            <span>Accept SKU, code, barcode, id, or first-column values.</span>
+          </div>
+          <div class="flow-card">
+            <span class="flow-index">2</span>
+            <strong>Normalize rows</strong>
+            <span>Detect value, optional name, and optional price columns.</span>
+          </div>
+          <div class="flow-card">
+            <span class="flow-index">3</span>
+            <strong>Preview labels</strong>
+            <span>Show browser preview for the first 30 labels.</span>
+          </div>
+          <div class="flow-card">
+            <span class="flow-index">4</span>
+            <strong>Gate clean export</strong>
+            <span>Free watermarked preview, paid clean Avery 5160 PDF.</span>
+          </div>
+          <div class="flow-card">
+            <span class="flow-index">5</span>
+            <strong>Send to Stripe</strong>
+            <span>$19 Export Pass or $29/month Pro.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid cols-4" style="margin-top: 18px;">
+        <div class="metric">
+          <span class="label">Barcode type</span>
+          <span class="number">1</span>
+          <p>Code 128 only.</p>
+        </div>
+        <div class="metric">
+          <span class="label">Label template</span>
+          <span class="number">1</span>
+          <p>Avery 5160 only.</p>
+        </div>
+        <div class="metric">
+          <span class="label">Paid moment</span>
+          <span class="number">1</span>
+          <p>Clean PDF export.</p>
+        </div>
+        <div class="metric">
+          <span class="label">Backend</span>
+          <span class="number">0</span>
+          <p>No auth, accounts, database, or webhooks.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="demand">
+      <div class="section-header">
+        <div>
+          <p class="kicker">Demand Evidence</p>
+          <h2>Big search volume exists, but buyer intent is in the label workflow.</h2>
+        </div>
+        <p>
+          The broad generator terms are useful later for SEO and ads. The first revenue wedge should focus on
+          people searching for bulk, label, software, and print workflows.
+        </p>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Keyword</th>
+              <th>Monthly Volume</th>
+              <th>CPC</th>
+              <th>Read</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>barcode generator</strong></td>
+              <td class="num">450,000</td>
+              <td class="num">$3.84</td>
+              <td>Large free-tool market; not the first paid wedge.</td>
+            </tr>
+            <tr>
+              <td><strong>upc barcode generator</strong></td>
+              <td class="num">40,500</td>
+              <td class="num">$5.09</td>
+              <td>Strong future SEO page; requires careful GS1 disclaimer.</td>
+            </tr>
+            <tr>
+              <td><strong>shopify barcode generator</strong></td>
+              <td class="num">22,200 avg, noisy</td>
+              <td class="num">$10.20</td>
+              <td>Good angle but unreliable volume signal.</td>
+            </tr>
+            <tr>
+              <td><strong>barcode labels</strong></td>
+              <td class="num">1,900</td>
+              <td class="num">$12.89</td>
+              <td>Clear paid label intent.</td>
+            </tr>
+            <tr>
+              <td><strong>code 128 barcode generator</strong></td>
+              <td class="num">1,900</td>
+              <td class="num">$4.74</td>
+              <td>Directly matches the simplified MVP.</td>
+            </tr>
+            <tr>
+              <td><strong>bulk barcode generator</strong></td>
+              <td class="num">1,600</td>
+              <td class="num">$7.48</td>
+              <td>Best paid workflow keyword.</td>
+            </tr>
+            <tr>
+              <td><strong>barcode label generator</strong></td>
+              <td class="num">590</td>
+              <td class="num">$5.92</td>
+              <td>Small but close to the product promise.</td>
+            </tr>
+            <tr>
+              <td><strong>barcode label software</strong></td>
+              <td class="num">320</td>
+              <td class="num">$18.96</td>
+              <td>High buyer intent; worth exact-match testing.</td>
+            </tr>
+            <tr>
+              <td><strong>print barcode labels</strong></td>
+              <td class="num">210</td>
+              <td class="num">$9.88</td>
+              <td>Small but urgent workflow intent.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="funnel">
+      <div class="section-header">
+        <div>
+          <p class="kicker">Revenue Math</p>
+          <h2>The plan depends on targeted traffic, not generic traffic.</h2>
+        </div>
+        <p>
+          The funnel is credible only when visitors already understand their problem. Broad free-generator traffic
+          will underperform because many users just need one barcode image.
+        </p>
+      </div>
+
+      <div class="diagram">
+        <div class="funnel" aria-label="Revenue funnel">
+          <div class="funnel-row">
+            <strong>Visitors</strong>
+            <div class="bar"><span style="width: 100%;"></span></div>
+            <span class="num">500-1,000</span>
+          </div>
+          <div class="funnel-row">
+            <strong>CSV users</strong>
+            <div class="bar"><span style="width: 25%;"></span></div>
+            <span class="num">15%-25%</span>
+          </div>
+          <div class="funnel-row">
+            <strong>Export clicks</strong>
+            <div class="bar"><span style="width: 35%;"></span></div>
+            <span class="num">20%-35%</span>
+          </div>
+          <div class="funnel-row">
+            <strong>Paying users</strong>
+            <div class="bar"><span style="width: 40%;"></span></div>
+            <span class="num">20%-40%</span>
+          </div>
+        </div>
+
+        <div class="scenario">
+          <div class="mini">
+            <strong>Base case</strong>
+            <span>750 visitors &rarr; 150 CSV users &rarr; 38 export clicks &rarr; 11 customers. If 7 choose Pro and 4 choose Export Pass: $203 MRR + $76 one-time.</span>
+          </div>
+          <div class="mini">
+            <strong>Aggressive case</strong>
+            <span>1,000 visitors &rarr; 250 CSV users &rarr; 88 export clicks &rarr; 26 customers. If 18 choose Pro and 8 choose Export Pass: $522 MRR + $152 one-time.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid cols-3" style="margin-top: 18px;">
+        <div class="card">
+          <h3>Best case</h3>
+          <p>$500+ MRR within 3 weeks.</p>
+        </div>
+        <div class="card">
+          <h3>Acceptable proof</h3>
+          <p>$300+ MRR plus $300+ one-time export revenue.</p>
+        </div>
+        <div class="card">
+          <h3>Continue signal</h3>
+          <p>10+ paying customers, even if total MRR is under $500.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="architecture">
+      <div class="section-header">
+        <div>
+          <p class="kicker">Build Shape</p>
+          <h2>Static app, browser-side work, Stripe links.</h2>
+        </div>
+        <p>
+          The infrastructure choice is the strategy. Every avoided backend surface removes operational overhead and
+          keeps the product test cheap enough to kill or pivot.
+        </p>
+      </div>
+
+      <div class="diagram architecture" aria-label="Architecture diagram">
+        <div class="stack">
+          <div class="node">
+            <strong>User input</strong>
+            <span>Paste CSV or upload CSV file.</span>
+          </div>
+          <div class="node">
+            <strong>Browser storage</strong>
+            <span>Local unlock state only after payment redirect.</span>
+          </div>
+          <div class="node">
+            <strong>Analytics</strong>
+            <span>Track visits, CSV usage, preview, export clicks, purchase paths.</span>
+          </div>
+        </div>
+
+        <div>
+          <p class="arrow-note">No server required</p>
+          <div class="center-node">
+            <h3>Vite + React + TypeScript</h3>
+            <p>papaparse for CSV, bwip-js for Code 128, jspdf for Avery 5160 PDFs.</p>
+            <ul class="pill-list" aria-label="Architecture components">
+              <li>CSV parser</li>
+              <li>Barcode renderer</li>
+              <li>PDF generator</li>
+              <li>Pricing gate</li>
+              <li>SEO pages</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="stack">
+          <div class="node">
+            <strong>Stripe Payment Links</strong>
+            <span>$19 Export Pass and $29/month Pro.</span>
+          </div>
+          <div class="node">
+            <strong>Vercel or Netlify</strong>
+            <span>Static deploy with domain and analytics script.</span>
+          </div>
+          <div class="node">
+            <strong>Tally or Sheets</strong>
+            <span>Low-friction feedback capture.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scope-board" style="margin-top: 18px;">
+        <div class="card">
+          <h3>Included in V1</h3>
+          <ul class="scope-list">
+            <li><span class="mark">Y</span><span>Paste and upload CSV.</span></li>
+            <li><span class="mark">Y</span><span>Detect SKU, code, barcode, id, or first column.</span></li>
+            <li><span class="mark">Y</span><span>Render Code 128 barcode labels.</span></li>
+            <li><span class="mark">Y</span><span>Preview first 30 labels in browser.</span></li>
+            <li><span class="mark">Y</span><span>Generate watermarked preview PDF for first 10 labels.</span></li>
+            <li><span class="mark">Y</span><span>Gate clean Avery 5160 PDF export behind Stripe.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Excluded from V1</h3>
+          <ul class="scope-list">
+            <li><span class="mark no">N</span><span>UPC-A, EAN, QR codes, and official GS1 issuance.</span></li>
+            <li><span class="mark no">N</span><span>Multiple label templates or drag-and-drop designer.</span></li>
+            <li><span class="mark no">N</span><span>Shopify OAuth, accounts, saved templates, and teams.</span></li>
+            <li><span class="mark no">N</span><span>Server-side rendering, payment webhooks, and database storage.</span></li>
+            <li><span class="mark no">N</span><span>Inventory management, scanner workflows, or support-heavy features.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <p class="kicker">Acquisition</p>
+          <h2>Distribution first, SEO second, exact-match ads only.</h2>
+        </div>
+        <p>
+          SEO pages should be built now for compounding, but the 3-week push needs active distribution into problem-aware
+          threads and capped exact-match paid search.
+        </p>
+      </div>
+
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>Primary route</h3>
+          <p>Problem-thread distribution across Shopify Community, Reddit, YouTube comments, ecommerce forums, and operator communities.</p>
+          <ul class="pill-list">
+            <li>30 useful replies</li>
+            <li>300 direct messages</li>
+            <li>3 demo clips</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Paid route</h3>
+          <p>Run a tightly capped $300 Google Ads test on exact-match workflow keywords only.</p>
+          <ul class="pill-list">
+            <li>bulk barcode generator</li>
+            <li>barcode label software</li>
+            <li>print barcode labels</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>SEO route</h3>
+          <p>Publish landing pages now, but do not count organic search toward the 3-week revenue target.</p>
+          <ul class="pill-list">
+            <li>/bulk-barcode-generator</li>
+            <li>/barcode-label-generator</li>
+            <li>/shopify-barcode-labels-from-csv</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="quote" style="margin-top: 18px;">
+        Do not bid on broad "barcode generator" during the 3-week revenue push.
+      </div>
+    </section>
+
+    <section class="section" id="timeline">
+      <div class="section-header">
+        <div>
+          <p class="kicker">21-Day Execution Calendar</p>
+          <h2>Build fast, then spend most effort on distribution.</h2>
+        </div>
+        <p>
+          The calendar forces a hard distinction between product completion and revenue pursuit. The product should be
+          live by Day 4, then tightened and distributed.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="time-block">
+          <div class="day">Days 1-2</div>
+          <div>
+            <h3>Build workflow</h3>
+            <p>Scaffold app, CSV parsing, Code 128 validation, Avery 5160 browser preview, and soft paid gate.</p>
+          </div>
+          <div class="exit">Exit: user can paste sample CSV, preview labels, and click a paid export option.</div>
+        </div>
+        <div class="time-block">
+          <div class="day">Days 3-4</div>
+          <div>
+            <h3>PDF export and payment</h3>
+            <p>Watermarked preview export, clean PDF unlock state, Stripe Payment Links, pricing gate, deploy public URL.</p>
+          </div>
+          <div class="exit">Exit: public URL live and payment success URL unlocks clean export.</div>
+        </div>
+        <div class="time-block">
+          <div class="day">Days 5-6</div>
+          <div>
+            <h3>Conversion tightening</h3>
+            <p>Test real CSV formats, tighten Avery 5160 and Code 128 copy, add disclaimer, sample CSV, and demo data.</p>
+          </div>
+          <div class="exit">Exit: cold user understands the tool in 10 seconds.</div>
+        </div>
+        <div class="time-block">
+          <div class="day">Days 7-14</div>
+          <div>
+            <h3>Distribution sprint</h3>
+            <p>Publish SEO pages, post 15 useful community replies, send 150 direct messages, create 2 demo clips, run $150 ad test.</p>
+          </div>
+          <div class="exit">Exit: 250 targeted visitors, 50 CSV users, 15 export clicks, 3 paying customers.</div>
+        </div>
+        <div class="time-block">
+          <div class="day">Days 15-18</div>
+          <div>
+            <h3>Pricing iteration</h3>
+            <p>If users click export but do not pay, make Export Pass primary. If recurring use appears, make Pro primary.</p>
+          </div>
+          <div class="exit">Exit: export click to purchase conversion above 20% and at least 5 paying customers.</div>
+        </div>
+        <div class="time-block">
+          <div class="day">Days 19-21</div>
+          <div>
+            <h3>Push to $500</h3>
+            <p>Send 150 more targeted messages, post 15 more replies, rerun ads only if first test produced export clicks.</p>
+          </div>
+          <div class="exit">Exit: 10+ paying customers, 18 Pro subscribers or mixed revenue equivalent.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="decisions">
+      <div class="section-header">
+        <div>
+          <p class="kicker">Kill And Pivot Logic</p>
+          <h2>Decide with behavior, not optimism.</h2>
+        </div>
+        <p>
+          After 1,000 targeted visitors, the plan either has proof or it does not. These thresholds prevent quietly
+          expanding scope to compensate for weak demand.
+        </p>
+      </div>
+
+      <div class="decision-tree" aria-label="Decision tree">
+        <div class="decision status-good">
+          <strong>10+ people pay</strong>
+          <span>Continue. Build only the next feature paying users request repeatedly.</span>
+        </div>
+        <div class="decision status-watch">
+          <strong>One-time buys, weak Pro</strong>
+          <span>Make Export Pass primary and add a post-purchase subscription upsell.</span>
+        </div>
+        <div class="decision status-watch">
+          <strong>Preview use, no payment</strong>
+          <span>Improve PDF output, adjust price, or move the gate closer to value.</span>
+        </div>
+        <div class="decision status-stop">
+          <strong>Low CSV usage</strong>
+          <span>Landing promise or traffic source is wrong. Pivot away from the current wedge.</span>
+        </div>
+      </div>
+
+      <div class="review-grid" style="margin-top: 18px;">
+        <div class="card">
+          <h3>Pivot thresholds</h3>
+          <ul class="scope-list">
+            <li><span class="mark no">!</span><span>Fewer than 100 CSV users after 1,000 targeted visitors.</span></li>
+            <li><span class="mark no">!</span><span>Fewer than 30 export clicks after 1,000 targeted visitors.</span></li>
+            <li><span class="mark no">!</span><span>Fewer than 5 paying users after 1,000 targeted visitors.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Daily scorecard</h3>
+          <div class="scorecard">
+            <div class="score-item"><span>Visitors</span><strong>Daily</strong></div>
+            <div class="score-item"><span>CSV users</span><strong>Daily</strong></div>
+            <div class="score-item"><span>Export clicks</span><strong>Daily</strong></div>
+            <div class="score-item"><span>Purchases</span><strong>Daily</strong></div>
+            <div class="score-item"><span>Top objection</span><strong>Daily</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <p class="kicker">Review Takeaway</p>
+          <h2>This is elegant because the constraints do the work.</h2>
+        </div>
+        <p>
+          The plan is deliberately narrow enough to ship and sell quickly. Its main risk is not technical execution;
+          it is whether enough buyers need repeat label exports rather than a one-time PDF.
+        </p>
+      </div>
+
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>Why it can work</h3>
+          <p>It reaches people with active label-printing pain and monetizes only after the preview proves usefulness.</p>
+        </div>
+        <div class="card">
+          <h3>Why it can fail</h3>
+          <p>Users may need a one-off export, not a subscription. That is why the $19 Export Pass is included from day one.</p>
+        </div>
+        <div class="card">
+          <h3>What not to do</h3>
+          <p>Do not broaden into barcode types, Shopify OAuth, saved templates, inventory management, or SEO-only growth before paid proof.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>
+        Visual rendering generated from
+        <a href="2026-06-16-csvtolabels-elegant-500mrr-v2.md">2026-06-16-csvtolabels-elegant-500mrr-v2.md</a>.
+        Data references are copied from the source plan: DataForSEO, United States, refreshed June 16, 2026.
+      </p>
+    </footer>
+  </main>
+</body>
+</html>
