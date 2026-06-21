@@ -47,8 +47,8 @@
 
 | Offer | Source price | Judgment |
 |---|---:|---|
-| Export Pass | $19 one-time | Best match for urgent, task-complete behavior |
-| Pro | $29/month | Useful as a test, but weak as the default assumption |
+| Export Pass | $19.97 one-time | Best match for urgent, task-complete behavior |
+| Pro | $24.97/month | Useful as a test, but weak as the default assumption |
 
 - The source docs themselves say early demand may show up as one-time purchases first.
 - The AIDLC plan explicitly treats recurring frequency as an open question.

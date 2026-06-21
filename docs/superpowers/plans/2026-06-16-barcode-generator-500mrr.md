@@ -66,18 +66,18 @@ The gap:
 
 Use a simple two-plan pricing model:
 
-- **Pro:** $29/month for CSV upload, 1,000 labels/month, PDF export, no watermark.
+- **Pro:** $24.97/month for CSV upload, 1,000 labels/month, PDF export, no watermark.
 - **Business:** $79/month for 10,000 labels/month, saved browser-local templates, commercial use, priority email support.
 
 Target mix for $500 MRR:
 
-- 10 Pro customers = $290 MRR.
+- 10 Pro customers = $249.70 MRR.
 - 3 Business customers = $237 MRR.
 - Total = $527 MRR.
 
 Fallback cash target if subscription conversion is slower:
 
-- Add a one-time **Export Pass** at $19 for 7 days of PDF exports.
+- Add a one-time **Export Pass** at $19.97 for 7 days of PDF exports.
 - This does not count as MRR, but it validates willingness to pay and can cover early costs.
 
 Do not offer a free trial in the first 3 weeks. The free preview is the trial.
@@ -141,13 +141,13 @@ DataForSEO CPCs:
 - `upc barcode generator`: $5.09.
 - `barcode generator`: $3.84.
 
-At $29/month, paid search is hard unless conversion is unusually high.
+At $24.97/month, paid search is hard unless conversion is unusually high.
 
 Example:
 
 - $500 ad spend at $5 CPC = 100 visitors.
 - 5% paid conversion = 5 customers.
-- 5 customers at $29/month = $145 MRR.
+- 5 customers at $24.97/month = $124.85 MRR.
 
 Paid ads should be capped at $300-$500 as a demand test. Do not rely on them to reach $500 MRR.
 
@@ -301,7 +301,7 @@ Success thresholds by end of Week 3:
 - 500 targeted visitors.
 - 100 CSV uploads.
 - 40 paid-export clicks.
-- 13 paid subscriptions at blended $39/month, or 18 Pro subscriptions at $29/month.
+- 13 paid subscriptions at blended $39/month, or 21 Pro subscriptions at $24.97/month.
 
 ## Technical Implementation Plan
 
@@ -947,14 +947,14 @@ Primary CTA:
 
 Paid CTA:
 
-> Export full PDF - $29/mo
+> Export full PDF - $24.97/mo
 
 - [ ] **Step 4: Add pricing panel**
 
 Create `src/components/PricingPanel.tsx` with:
 
 - Free: single codes, 10-row preview, watermark.
-- Pro $29/mo: 1,000 labels/month, no watermark, CSV upload, Avery templates.
+- Pro $24.97/mo: 1,000 labels/month, no watermark, CSV upload, Avery templates.
 - Business $79/mo: 10,000 labels/month, thermal templates, priority email.
 
 - [ ] **Step 5: Build and inspect locally**
@@ -1040,10 +1040,10 @@ Create `docs/launch/stripe-setup.md`:
 ```md
 # Stripe Setup
 
-Create one Payment Link for csvtolabels.com Pro at $29/month.
+Create one Payment Link for csvtolabels.com Pro at $24.97/month.
 
 Product name: csvtolabels.com Pro
-Price: $29/month
+Price: $24.97/month
 Success URL: https://csvtolabels.com/?unlock=pro
 Cancel URL: https://csvtolabels.com/
 

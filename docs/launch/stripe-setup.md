@@ -5,14 +5,14 @@ Create two Stripe Payment Links.
 ## Export Pass
 
 Name: csvtolabels.com Export Pass  
-Price: $19 one-time  
+Price: $19.97 one-time  
 Success URL: https://csvtolabels.com/?unlock=export-pass  
 Cancel URL: https://csvtolabels.com/
 
 ## Pro
 
 Name: csvtolabels.com Pro  
-Price: $29/month  
+Price: $24.97/month  
 Success URL: https://csvtolabels.com/?unlock=pro  
 Cancel URL: https://csvtolabels.com/
 

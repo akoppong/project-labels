@@ -37,7 +37,7 @@ export function ExportGate({ rowCount, unlocked }: ExportGateProps) {
             className="grid gap-1 rounded-3xl border border-[rgba(31,27,22,0.1)] bg-[rgba(248,241,228,0.85)] p-5 text-inherit no-underline"
             href={exportPassCheckoutUrl}
           >
-            <span className="text-2xl font-extrabold text-[var(--accent)]">$19</span>
+            <span className="text-2xl font-extrabold text-[var(--accent)]">$19.97</span>
             <strong>Export Pass</strong>
             <small>7 days of clean PDF exports</small>
           </Link>
@@ -45,7 +45,7 @@ export function ExportGate({ rowCount, unlocked }: ExportGateProps) {
             className="grid gap-1 rounded-3xl border border-[rgba(189,75,32,0.4)] bg-[rgba(248,241,228,0.85)] p-5 text-inherit no-underline shadow-[0_12px_30px_rgba(189,75,32,0.12)]"
             href={proCheckoutUrl}
           >
-            <span className="text-2xl font-extrabold text-[var(--accent)]">$29/mo</span>
+            <span className="text-2xl font-extrabold text-[var(--accent)]">$24.97/mo</span>
             <strong>Pro</strong>
             <small>Unlimited validation-phase exports</small>
           </Link>

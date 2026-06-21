@@ -86,8 +86,8 @@ Positioning rules:
 
 Use two paid offers from day one:
 
-1. **Export Pass:** $19 one-time, 7 days of clean PDF exports.
-2. **Pro:** $29/month, unlimited clean PDF exports during validation.
+1. **Export Pass:** $19.97 one-time, 7 days of clean PDF exports.
+2. **Pro:** $24.97/month, unlimited clean PDF exports during validation.
 
 Why both:
 
@@ -150,7 +150,7 @@ The excluded list is intentional. These are the features that make the product s
 The user should only need to do five things:
 
 1. Approve the plan.
-2. Create two Stripe Payment Links: $19 one-time and $29/month.
+2. Create two Stripe Payment Links: $19.97 one-time and $24.97/month.
 3. Connect the repo to Vercel or Netlify.
 4. Point a domain if available.
 5. Approve or lightly edit outreach copy before it is posted/sent.
@@ -1103,12 +1103,12 @@ export function ExportGate({ rowCount, unlocked }: ExportGateProps) {
       <p>Preview is free. Remove the watermark and export every row when the sheet is ready.</p>
       <div className="priceGrid">
         <a className="priceCard" href={getCheckoutUrl('export-pass')}>
-          <span className="price">$19</span>
+          <span className="price">$19.97</span>
           <strong>Export Pass</strong>
           <small>7 days of clean PDF exports</small>
         </a>
         <a className="priceCard featured" href={getCheckoutUrl('pro')}>
-          <span className="price">$29/mo</span>
+          <span className="price">$24.97/mo</span>
           <strong>Pro</strong>
           <small>Unlimited validation-phase exports</small>
         </a>
@@ -1310,14 +1310,14 @@ Create two Stripe Payment Links.
 ## Export Pass
 
 Name: csvtolabels.com Export Pass
-Price: $19 one-time
+Price: $19.97 one-time
 Success URL: https://csvtolabels.com/?unlock=export-pass
 Cancel URL: https://csvtolabels.com/
 
 ## Pro
 
 Name: csvtolabels.com Pro
-Price: $29/month
+Price: $24.97/month
 Success URL: https://csvtolabels.com/?unlock=pro
 Cancel URL: https://csvtolabels.com/
 
