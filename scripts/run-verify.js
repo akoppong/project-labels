@@ -23,8 +23,14 @@ const steps = [
   }
 ];
 
+// npm_execpath is set by npm when running scripts, pointing to the npm binary
+// that invoked us. Falling back to 'npm' works on POSIX; on Windows spawnSync
+// needs the exact executable path since npm may be a .ps1 or .cmd shim.
+const npm = process.env.npm_execpath ?? 'npm';
+const spawnOptions = process.env.npm_execpath ? { execPath: process.execPath } : {};
+
 for (const step of steps) {
-  const result = spawnSync('npm', step.args, {
+  const result = spawnSync(process.execPath, [npm, ...step.args], {
     stdio: 'inherit',
     env: {
       ...process.env,
