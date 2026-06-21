@@ -1,0 +1,99 @@
+---
+title: "Create Barcode Labels from Excel or Google Sheets"
+slug: create-barcode-labels-from-excel
+description: "Export your Excel or Google Sheets data as CSV and generate printable Avery 5160 barcode labels in a browser. No desktop software needed."
+publishedAt: "2026-06-21"
+updatedAt: "2026-06-21"
+tags: ["Excel", "Google Sheets", "barcode labels", "CSV", "spreadsheet"]
+keyword: create barcode labels from excel
+intent: informational
+draft: false
+---
+
+Excel and Google Sheets are where most small business inventory data starts. Product codes, SKUs, bin numbers, part numbers: they are in a spreadsheet long before they end up in a barcode system.
+
+The most direct path from that spreadsheet to printable barcode labels goes through one step: export to CSV. From there, a browser-based label generator handles the rest.
+
+## Step 1: Prepare your spreadsheet
+
+Before exporting, take a minute to review your data:
+
+**Check the barcode column.** Identify which column contains the value you want to encode. It should contain only the code itself, with no extra text, spaces, or leading/trailing characters.
+
+**Remove rows you do not need.** Blank rows, summary rows, and rows for items you are not labeling will produce blank or unwanted labels. Delete them before exporting.
+
+**Check for leading zeros.** If your codes start with zeros (like `00123`), Excel may have stripped them, treating the column as a number. See the "Common problems" section below.
+
+**Confirm there is one header row.** If your spreadsheet has merged headers or multiple header rows, clean it to a single clean header row before exporting.
+
+## Step 2: Export as CSV
+
+**From Excel:**
+File > Save As > choose "CSV (Comma delimited) (*.csv)". Click Save. If Excel warns you about losing formatting or multiple sheets, confirm you want to save only the current sheet. That is expected behavior.
+
+**From Google Sheets:**
+File > Download > Comma Separated Values (.csv). This downloads the active sheet as a CSV file.
+
+**From other spreadsheet apps:**
+Most applications have a CSV export option in File or Export. The output should be plain text with comma-separated values and a single header row.
+
+## Step 3: Paste the CSV and select your column
+
+Go to [Bulk barcode label generator](/bulk-barcode-generator) and paste your CSV into the input field.
+
+Select the column that contains your barcode values. The live preview shows a Code 128 barcode for each row, laid out on a 30-up Avery 5160 sheet.
+
+## Step 4: Review the preview
+
+Before exporting, check for:
+
+- Blank labels (rows with empty barcode values)
+- Text below the barcode that is cut off or truncated
+- Unexpected values: formula remnants, merged-cell artifacts, or extra header rows
+
+If something looks wrong, fix it in the spreadsheet, re-export as CSV, and paste again.
+
+## Step 5: Export the PDF
+
+When the preview is correct, export to PDF. Print on Avery 5160 sheets at 100% scale with no printer scaling applied.
+
+## Common problems and fixes
+
+**Leading zeros are missing from codes.**
+Excel treats columns formatted as numbers and drops leading zeros silently. A code entered as `00123` becomes `123` in the exported CSV. To fix this: select the column, right-click > Format Cells > Text, then re-enter or paste the values. Alternatively, add an apostrophe before each value (`'00123`) to force text treatment. In Google Sheets, format the column as Plain text before entering or pasting values.
+
+**Barcode column contains formula errors.**
+If a formula references a deleted row or returns an error like `#REF!` or `#VALUE!`, that error string will appear as the barcode value. Replace formula cells with static values: copy the column, then Paste Special > Values Only.
+
+**Codes look like large numbers.**
+If your barcode column contains dates, Excel stores them as serial numbers internally. A date like June 1, 2026 exports as `46208`. Format the column as Text and re-enter the values in the format you actually want on the label.
+
+**Merged cells are creating extra blank rows.**
+Merged cells in Excel often export as one populated row followed by empty rows. Unmerge the cells and fill in the values for each row before exporting.
+
+**Codes are being truncated.**
+Long SKUs or part numbers may be cut off in the label text display if they exceed the label width. If this happens, consider abbreviating the display text while keeping the full code as the barcode value.
+
+## What the tool reads
+
+The tool reads CSV data pasted into the input field. It does not open .xlsx or .ods files directly. The export step is required.
+
+That step is built into every major spreadsheet application and takes about 10 seconds. It does not require any add-ons or plugins.
+
+## FAQ
+
+**How many rows can I import at once?**
+
+The tool handles CSVs of a few hundred rows comfortably. For batches of 500 rows or more, split into multiple CSVs of 200 to 300 rows each. This keeps the browser preview fast and the exported PDF a reasonable file size.
+
+**Can I include a product name on the label alongside the barcode?**
+
+Yes. If your CSV includes a product name column, it can appear as label text below the barcode. Select the code column as the barcode value and the name column as the display text during setup.
+
+**Does this work with Google Sheets data?**
+
+Yes. Export from Google Sheets as CSV (File > Download > Comma Separated Values) and paste the result. The tool handles Google Sheets exports exactly the same way it handles Excel exports.
+
+---
+
+For batch label generation tips, see [Bulk barcode generator from spreadsheet](/blog/bulk-barcode-generator-from-spreadsheet). For Shopify-specific export steps, see [Shopify barcode labels from CSV](/blog/shopify-barcode-labels-from-csv).

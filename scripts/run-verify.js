@@ -7,6 +7,7 @@ const defaultCheckoutUrls = {
 
 const steps = [
   { label: 'env:check', args: ['run', 'env:check'] },
+  { label: 'validate:blog', args: ['run', 'validate:blog'] },
   { label: 'lint', args: ['run', 'lint'] },
   { label: 'lint:design', args: ['run', 'lint:design'] },
   { label: 'test', args: ['test'] },
@@ -32,6 +33,7 @@ const spawnOptions = process.env.npm_execpath ? { execPath: process.execPath } :
 for (const step of steps) {
   const result = spawnSync(process.execPath, [npm, ...step.args], {
     stdio: 'inherit',
+    shell: true,
     env: {
       ...process.env,
       ...step.env

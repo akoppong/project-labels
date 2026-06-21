@@ -1,0 +1,81 @@
+---
+title: "Code 128 Barcode Labels for Inventory: Why It Works for Internal SKUs"
+slug: code-128-barcode-labels-for-inventory
+description: "Code 128 is the practical choice for internal inventory labels. Here is why it fits and how to generate labels from a CSV."
+publishedAt: "2026-06-21"
+updatedAt: "2026-06-21"
+tags: ["Code 128", "inventory", "barcode labels", "SKU"]
+keyword: code 128 barcode generator for inventory
+intent: informational with buying intent
+draft: false
+---
+
+When you are labeling shelves, bins, or products for internal inventory tracking, you do not need official retail barcodes. You need a barcode format that scanners can read reliably from your own SKU or ID codes.
+
+Code 128 is the right choice for this use case. Here is why it fits, and how to generate Code 128 labels from a CSV file.
+
+## What Code 128 is
+
+Code 128 is a high-density linear barcode format. It can encode the full ASCII character set, including letters, numbers, hyphens, and special characters. That range makes it compatible with virtually every internal SKU and product ID format.
+
+It is not the same as UPC. UPC (Universal Product Code) is a standardized retail identifier issued through GS1 for shelf placement and point-of-sale scanning. Code 128 is a general-purpose encoding format: you can encode any string you choose. The two serve different purposes.
+
+## Why Code 128 works for internal inventory
+
+Several properties make it the right fit:
+
+**Flexible input.** Code 128 encodes any text string you give it. Whether your SKUs are alphanumeric (SKU-1042), numeric only (10042), or structured with separators (WH-A12-BIN04), Code 128 handles them without modification.
+
+**Compatible with standard scanners.** Any barcode scanner that handles 1D barcodes reads Code 128. You do not need specialized hardware or driver configuration.
+
+**Compact representation.** Code 128 fits a long identifier in a small barcode, which matters when your labels are physically small.
+
+**No registration required.** You do not need a GS1 account or any external approval to generate Code 128 barcodes. You encode your own codes in your own format.
+
+## When Code 128 is not enough
+
+If your goal is to sell through major retailers or online marketplaces that require UPC or GTIN barcodes on product packaging, you need official identifiers from GS1. Code 128 labels generated from internal codes do not satisfy that requirement.
+
+For internal inventory only (your warehouse, your shelves, your own pick-and-pack process), Code 128 is the right tool.
+
+## How to generate Code 128 labels from a CSV
+
+1. Put your inventory codes in a spreadsheet column
+2. Export as CSV
+3. Go to [Code 128 barcode generator](/code-128-barcode-generator)
+4. Paste the CSV and select the column containing your inventory codes
+5. Preview the label sheet
+6. Export the PDF and print on Avery 5160 label sheets
+
+Each row in your CSV becomes one label. The preview lets you confirm every code renders correctly before you commit to printing.
+
+## Example: inventory bin labels
+
+A simple CSV for bin labels:
+
+```
+bin_id,description
+BIN-A01,Shelf A Row 1
+BIN-A02,Shelf A Row 2
+BIN-B01,Shelf B Row 1
+```
+
+Select `bin_id` as the barcode column. Each bin ID gets encoded as a Code 128 barcode. The description can appear as label text alongside it.
+
+## FAQ
+
+**Can I mix SKU labels and bin labels in the same batch?**
+
+Yes. As long as both types of codes are in the same column, they will all appear in the same label sheet. The tool generates one label per row regardless of what the code represents.
+
+**Will my handheld scanner read Code 128?**
+
+Any modern barcode scanner reads Code 128 by default. If you are unsure about a specific model, scan a test label and confirm before printing your full batch.
+
+**Does Code 128 support lowercase letters?**
+
+Code 128 encodes the full ASCII character set, including lowercase letters. Most inventory workflows use uppercase for clarity and to match existing system conventions.
+
+---
+
+For use cases focused on internal product identifiers, see [Barcode labels for internal product IDs](/blog/barcode-labels-for-internal-product-ids). For shelf and bin label workflows, see [How to print SKU labels for inventory shelves](/blog/print-sku-labels-for-inventory).
