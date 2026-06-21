@@ -30,8 +30,12 @@ const steps = [
 const npm = process.env.npm_execpath ?? 'npm';
 const spawnOptions = process.env.npm_execpath ? { execPath: process.execPath } : {};
 
+// Quote paths that may contain spaces so cmd.exe doesn't split them.
+const nodeExe = `"${process.execPath}"`;
+const npmCli = npm.includes(' ') ? `"${npm}"` : npm;
+
 for (const step of steps) {
-  const result = spawnSync(process.execPath, [npm, ...step.args], {
+  const result = spawnSync(nodeExe, [npmCli, ...step.args], {
     stdio: 'inherit',
     shell: true,
     env: {
