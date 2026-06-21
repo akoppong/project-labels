@@ -27,6 +27,7 @@ const steps = [
 for (const step of steps) {
   const result = spawnSync('npm', step.args, {
     stdio: 'inherit',
+    shell: true,
     env: {
       ...process.env,
       ...step.env
