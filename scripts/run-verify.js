@@ -24,21 +24,25 @@ const steps = [
   }
 ];
 
-// npm_execpath is set by npm when running scripts, pointing to the npm binary
-// that invoked us. Falling back to 'npm' works on POSIX; on Windows spawnSync
-// needs the exact executable path since npm may be a .ps1 or .cmd shim.
-const npm = process.env.npm_execpath ?? 'npm';
-const spawnOptions = process.env.npm_execpath ? { execPath: process.execPath } : {};
+// npm_execpath is set by npm when running scripts, pointing to npm-cli.js.
+// When present we invoke it via process.execPath (node) without a shell so
+// Windows paths with spaces (e.g. C:\Program Files\nodejs\node.exe) are
+// passed directly to the OS and never mangled by cmd.exe's tokeniser.
+// When absent (running as `node scripts/run-verify.js`) we fall back to
+// 'npm' via shell, which resolves npm.cmd/.ps1 through PATH.
+const npmCliPath = process.env.npm_execpath;
 
 for (const step of steps) {
-  const result = spawnSync(process.execPath, [npm, ...step.args], {
-    stdio: 'inherit',
-    shell: true,
-    env: {
-      ...process.env,
-      ...step.env
-    }
-  });
+  const result = npmCliPath
+    ? spawnSync(process.execPath, [npmCliPath, ...step.args], {
+        stdio: 'inherit',
+        env: { ...process.env, ...step.env }
+      })
+    : spawnSync('npm', step.args, {
+        stdio: 'inherit',
+        shell: true,
+        env: { ...process.env, ...step.env }
+      });
 
   if (result.status !== 0) {
     process.exit(result.status ?? 1);
