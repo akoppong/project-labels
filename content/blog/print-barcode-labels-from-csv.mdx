@@ -1,0 +1,88 @@
+---
+title: "How to Print Barcode Labels from a CSV File"
+slug: print-barcode-labels-from-csv
+description: "Turn any spreadsheet into print-ready Avery 5160 barcode labels without mail merge or desktop label software."
+publishedAt: "2026-06-21"
+updatedAt: "2026-06-21"
+tags: ["barcode labels", "CSV", "workflow", "Avery 5160"]
+keyword: print barcode labels from csv
+intent: workflow
+draft: false
+---
+
+If your product codes, SKUs, or inventory IDs already live in a spreadsheet, you are most of the way to printable barcode labels. The missing step is getting that data from rows into a label layout without wrestling with mail merge or desktop label software.
+
+This guide covers the fastest path from CSV to a print-ready PDF.
+
+## What you need before you start
+
+You need a CSV with at least one column containing the value you want to encode. That could be:
+
+- a SKU like `SKU-10034`
+- an internal product ID like `PROD-441`
+- a bin location like `BIN-A12`
+
+If your spreadsheet is in Excel or Google Sheets, export it as CSV first. In Excel: File > Save As > CSV. In Google Sheets: File > Download > Comma Separated Values.
+
+## Step 1: Check your barcode column
+
+Open your CSV and identify the column you want to encode as a barcode.
+
+A few things to confirm before you paste:
+
+- Remove leading or trailing spaces from the barcode column
+- Avoid special characters that are not part of your code system
+- Code 128 supports letters, numbers, hyphens, and most standard characters, so typical SKU formats work fine
+
+Keep your header row. The tool uses it to let you select which column to use.
+
+## Step 2: Paste the CSV and select your column
+
+Go to [CSV to Labels](/print-barcode-labels-from-csv) and paste your CSV into the input field.
+
+After pasting, select the column you want to encode as a barcode. A live preview of your labels appears immediately, rendered as Code 128 barcodes on an Avery 5160 layout: 30 labels per sheet, 3 across and 10 down.
+
+## Step 3: Review the preview before exporting
+
+The preview is there to catch problems before you print. Scroll through the sheet and check:
+
+- Every barcode renders cleanly with no gaps or scrambled characters
+- Label text is readable at the label size
+- No rows have missing or placeholder values
+
+If you see a problem, fix the CSV and re-paste. Catching issues at the preview stage is much cheaper than discovering them after printing a full batch.
+
+## Step 4: Export the PDF
+
+When the preview looks right, export to PDF. The PDF is formatted for US Letter paper and designed to align with standard Avery 5160 sheets.
+
+Print a test page on plain paper first. Hold it up to an Avery sheet against a light source to confirm the labels line up before printing your full run. This one step prevents most alignment problems.
+
+## When this workflow fits
+
+This approach works well when:
+
+- your data already lives in a spreadsheet
+- you need more than a handful of labels
+- you want to preview the layout before paying for export
+- you are labeling internal inventory, not retail shelf products
+
+If you need official UPC or GTIN identifiers for retail distribution, those must come from GS1. This tool generates Code 128 labels from codes you already have, which is the right fit for internal labeling.
+
+## FAQ
+
+**Can I print a product name alongside the barcode?**
+
+Yes. If your CSV has a product name column, it can appear on the label as text alongside the barcode. Select the code column as the barcode value during setup.
+
+**What happens if some rows have missing values in the barcode column?**
+
+Rows with empty barcode values will show a blank label in the preview. Fill in those values in your CSV or remove the rows before exporting.
+
+**Does the tool support multiple pages?**
+
+Yes. If your CSV has more rows than fit on one sheet, the exported PDF includes additional pages with the remaining labels.
+
+---
+
+For batch workflows from larger spreadsheets, see [Bulk barcode generator from spreadsheet](/blog/bulk-barcode-generator-from-spreadsheet). For print alignment tips, see [Avery 5160 barcode labels from CSV](/blog/avery-5160-barcode-labels-from-csv).

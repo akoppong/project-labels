@@ -1,0 +1,90 @@
+---
+title: "Create Barcode Labels from Excel Without Desktop Software"
+slug: create-barcode-labels-from-excel
+description: "Export your Excel spreadsheet as CSV and generate printable Avery 5160 barcode labels in a browser, no desktop software needed."
+publishedAt: "2026-06-21"
+updatedAt: "2026-06-21"
+tags: ["Excel", "barcode labels", "CSV", "spreadsheet"]
+keyword: create barcode labels from excel
+intent: workflow
+draft: false
+---
+
+Excel is where a lot of inventory data lives. Product codes, SKUs, bin numbers, internal identifiers: they often start in a spreadsheet before they end up anywhere else.
+
+The most direct path from that spreadsheet to printable barcode labels goes through one intermediate step: exporting to CSV. From there, the workflow is simple.
+
+## Step 1: Export your Excel file as CSV
+
+Open your Excel workbook and navigate to the sheet that contains your product codes or SKUs.
+
+Go to File > Save As. In the format dropdown, select "CSV (Comma delimited) (*.csv)". Save the file.
+
+If Excel shows a message about the CSV format not supporting multiple sheets or formatting, confirm that you want to save only the current sheet. That is expected for CSV exports.
+
+## Step 2: Identify your barcode column
+
+Open the saved CSV in a text editor to confirm the structure. The first row should be your column headers. Identify the column that contains the value you want to encode as a barcode.
+
+Common choices:
+
+- `SKU` or `Part Number`
+- `Product Code` or `Item ID`
+- `Bin` or `Location Code`
+
+If your spreadsheet mixes different types of identifiers across columns, decide which one you want as the barcode value before pasting.
+
+## Step 3: Paste the CSV and select the column
+
+Go to [Bulk barcode label generator](/bulk-barcode-generator) and paste your CSV into the input field.
+
+Select the column that contains your barcode values. The tool will immediately preview the label sheet, showing a Code 128 barcode for each row on an Avery 5160 layout.
+
+## Step 4: Review the preview
+
+Check the preview before exporting. Look for:
+
+- Rows with missing values in the barcode column (they show a blank label)
+- Labels where text is too long to display within the label boundary
+- Any unexpected characters or values that look wrong
+
+If you spot a problem, fix the data in Excel, re-export as CSV, and re-paste. This takes less than a minute.
+
+## Step 5: Export the PDF
+
+When the preview looks correct, export to PDF. Open the PDF in your printer application, set the paper size to US Letter, disable any scaling options, and print on Avery 5160 label sheets.
+
+## What column values work as barcodes
+
+Code 128 encodes any standard alphanumeric string. Typical Excel data that works well:
+
+- Part numbers like `PN-10234`
+- SKUs like `SKU-A01-BLU`
+- Bin codes like `BIN-04-A`
+- Numeric IDs like `10045`
+
+Cells with Excel formulas will export their displayed value, which usually works without any extra steps. If in doubt, select the cells, copy them, and use Paste Special > Values to replace formulas with their results before saving as CSV.
+
+## Important: the tool reads CSV, not .xlsx files
+
+This tool reads CSV data you paste into the input field. It does not open .xlsx files directly. The Excel-to-CSV export step is required.
+
+That step is straightforward: File > Save As > CSV. It is a built-in Excel feature and does not require any add-ons.
+
+## FAQ
+
+**What if my Excel file has multiple sheets?**
+
+CSV export covers one sheet at a time. If you need labels from multiple sheets, export each sheet as a separate CSV, combine the rows into a single file, and paste the combined CSV.
+
+**My SKUs have leading zeros (like 00123). Will they export correctly?**
+
+Excel sometimes strips leading zeros from numeric columns. To preserve them, format that column as "Text" in Excel before exporting, or prefix each value with an apostrophe to force text formatting.
+
+**Can I include Excel formulas in my label data?**
+
+Excel formulas export as their calculated values, which usually works correctly. If a formula produces a value you do not want on the label, replace it with a static value using Paste Special > Values before saving as CSV.
+
+---
+
+For batch label generation from large spreadsheets, see [Bulk barcode generator from spreadsheet](/blog/bulk-barcode-generator-from-spreadsheet). For shelf and bin labeling workflows, see [How to print SKU labels for inventory shelves](/blog/print-sku-labels-for-inventory).

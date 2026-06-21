@@ -7,6 +7,7 @@ const defaultCheckoutUrls = {
 
 const steps = [
   { label: 'env:check', args: ['run', 'env:check'] },
+  { label: 'validate:blog', args: ['run', 'validate:blog'] },
   { label: 'lint', args: ['run', 'lint'] },
   { label: 'lint:design', args: ['run', 'lint:design'] },
   { label: 'test', args: ['test'] },

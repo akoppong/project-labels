@@ -1,0 +1,83 @@
+---
+title: "Shopify Barcode Labels from CSV: A Step-by-Step Guide"
+slug: shopify-barcode-labels-from-csv
+description: "Export your Shopify product list and turn it into printable barcode labels without installing a Shopify app."
+publishedAt: "2026-06-21"
+updatedAt: "2026-06-21"
+tags: ["Shopify", "barcode labels", "CSV", "inventory"]
+keyword: shopify barcode labels from csv
+intent: platform-specific workflow
+draft: false
+---
+
+Shopify lets you export your full product catalog as a CSV. That export includes your SKUs, titles, and any custom identifiers you have set up. You do not need a Shopify app or a third-party integration to turn that data into printable barcode labels.
+
+This guide walks through the export and the label generation in order.
+
+## Step 1: Export your products from Shopify
+
+In your Shopify admin, go to Products > All products. Click Export in the top right.
+
+In the export dialog:
+
+- Choose which products to include: all products, the current page, or selected items
+- Select "CSV for Excel, Numbers, or other spreadsheet applications"
+- Click Export products
+
+Shopify will email you a download link for the CSV file.
+
+## Step 2: Find the right column in the export
+
+Shopify's product export CSV has many columns. The most useful ones for barcode labels are:
+
+- **Variant SKU**: your internal product identifier, the most common choice for label workflows
+- **Handle**: the URL-friendly product name, useful as a secondary identifier
+- **Variant Barcode**: any barcode value you have already entered in Shopify
+
+For internal inventory labeling, `Variant SKU` is usually the right column. If you have already entered barcode values in Shopify, use `Variant Barcode` instead.
+
+## Step 3: Clean up the CSV if needed
+
+Shopify product exports often include multiple rows per product (one per variant combination: size, color, material). If multiple variants share the same SKU, you may want to remove duplicate rows.
+
+Open the CSV in Excel or Google Sheets, remove or filter the rows you do not want labels for, and save it again as CSV before pasting.
+
+## Step 4: Paste the CSV and preview labels
+
+Go to [Shopify barcode labels](/shopify-barcode-labels-from-csv) and paste your cleaned CSV.
+
+Select `Variant SKU` (or whichever column contains your identifier) as the barcode column. The live preview shows you the full label sheet immediately. Each row generates one Code 128 barcode label on a standard Avery 5160 layout.
+
+## Step 5: Export the PDF
+
+Once the preview looks correct, export to PDF. Print on Avery 5160 label sheets using US Letter paper.
+
+## Important: this is not a Shopify app
+
+This tool does not connect to your Shopify store directly. It does not sync inventory, update product records, or install into your Shopify admin. The workflow is entirely offline: export from Shopify, paste the CSV, generate labels.
+
+That separation is intentional. You get printable barcode labels from your existing export without adding another app to manage or maintain.
+
+## When to use this vs. official retail barcodes
+
+SKU labels generated from this tool are for internal inventory tracking. If you sell through retail channels that require official UPC or GTIN barcodes on product packaging, those identifiers need to come from GS1.
+
+For internal labeling (warehouse shelves, storage bins, pick-and-pack workflows), Code 128 labels from your SKU data are the right fit.
+
+## FAQ
+
+**What if my Shopify SKUs contain special characters?**
+
+Code 128 supports most standard characters used in SKU formats: letters, numbers, hyphens, underscores, and dots. Check the preview to confirm your specific format renders correctly.
+
+**My export has hundreds of variants. Do I need to print a label for every one?**
+
+No. Filter the CSV to the rows you need before pasting. Delete rows for variants you do not want to label, save the file as CSV, and paste the cleaned version.
+
+**Can I use this for Shopify locations or multi-location inventory?**
+
+The export covers your product list. If you need location-specific information on labels, add a location column to your spreadsheet before pasting, and include it as label text alongside the SKU barcode.
+
+---
+
+For general shelf and bin labeling, see [How to print SKU labels for inventory shelves](/blog/print-sku-labels-for-inventory). For labeling products by internal ID, see [Barcode labels for internal product IDs](/blog/barcode-labels-for-internal-product-ids).
