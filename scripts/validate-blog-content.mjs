@@ -40,8 +40,9 @@ const PRODUCT_PAGES = new Set([
 ]);
 
 function parseFrontmatter(raw) {
-  const normalized = raw.replace(/\r\n/g, '\n');
-  const match = normalized.match(/^---\n([\s\S]*?)\n---/);
+  // Normalise CRLF → LF so the regex works on Windows checkouts too.
+  const normalised = raw.replace(/\r\n/g, '\n');
+  const match = normalised.match(/^---\n([\s\S]*?)\n---/);
   if (!match) return null;
 
   const block = match[1];
@@ -77,9 +78,9 @@ function parseFrontmatter(raw) {
 }
 
 function getBody(raw) {
-  const normalized = raw.replace(/\r\n/g, '\n');
-  const match = normalized.match(/^---\n[\s\S]*?\n---\n([\s\S]*)$/);
-  return match ? match[1] : normalized;
+  const normalised = raw.replace(/\r\n/g, '\n');
+  const match = normalised.match(/^---\n[\s\S]*?\n---\n([\s\S]*)$/);
+  return match ? match[1] : normalised;
 }
 
 function extractLinks(body) {

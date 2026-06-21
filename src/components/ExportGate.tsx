@@ -1,22 +1,44 @@
+'use client';
+
 import Link from 'next/link';
+import { useState } from 'react';
+import type { LabelRow } from '../lib/csv';
+import { trackEvent } from '../lib/analytics';
+import { generateLabelPdf } from '../lib/generate-pdf';
 import { getCheckoutUrl } from '../lib/unlock';
 
 type ExportGateProps = {
   rowCount: number;
   unlocked: boolean;
+  rows?: LabelRow[];
 };
 
-export function ExportGate({ rowCount, unlocked }: ExportGateProps) {
+export function ExportGate({ rowCount, unlocked, rows = [] }: ExportGateProps) {
+  const [isGenerating, setIsGenerating] = useState(false);
+
+  async function handleDownload() {
+    setIsGenerating(true);
+    trackEvent('pdf_download_clicked', { rowCount });
+    try {
+      await generateLabelPdf(rows);
+      trackEvent('pdf_downloaded', { rowCount });
+    } finally {
+      setIsGenerating(false);
+    }
+  }
+
   if (unlocked) {
     return (
       <section className="rounded-3xl border border-[var(--panel-border)] bg-[var(--panel)] p-6 shadow-[0_16px_40px_rgba(73,54,25,0.08)]">
         <h2 className="mb-2 text-2xl font-semibold">Export unlocked</h2>
         <p className="text-[var(--muted)]">Your clean PDF export is ready for {rowCount} labels.</p>
         <button
-          className="mt-4 inline-flex items-center rounded-full bg-[var(--foreground)] px-5 py-3 text-sm font-semibold text-[var(--background)]"
+          className="mt-4 inline-flex items-center rounded-full bg-[var(--foreground)] px-5 py-3 text-sm font-semibold text-[var(--background)] disabled:opacity-60"
+          disabled={isGenerating}
+          onClick={handleDownload}
           type="button"
         >
-          Download clean PDF
+          {isGenerating ? 'Generating…' : 'Download clean PDF'}
         </button>
       </section>
     );
@@ -36,6 +58,7 @@ export function ExportGate({ rowCount, unlocked }: ExportGateProps) {
           <Link
             className="grid gap-1 rounded-3xl border border-[rgba(31,27,22,0.1)] bg-[rgba(248,241,228,0.85)] p-5 text-inherit no-underline"
             href={exportPassCheckoutUrl}
+            onClick={() => trackEvent('checkout_clicked', { plan: 'export-pass' })}
           >
             <span className="text-2xl font-extrabold text-[var(--accent)]">$19.97</span>
             <strong>Export Pass</strong>
@@ -44,6 +67,7 @@ export function ExportGate({ rowCount, unlocked }: ExportGateProps) {
           <Link
             className="grid gap-1 rounded-3xl border border-[rgba(189,75,32,0.4)] bg-[rgba(248,241,228,0.85)] p-5 text-inherit no-underline shadow-[0_12px_30px_rgba(189,75,32,0.12)]"
             href={proCheckoutUrl}
+            onClick={() => trackEvent('checkout_clicked', { plan: 'pro' })}
           >
             <span className="text-2xl font-extrabold text-[var(--accent)]">$24.97/mo</span>
             <strong>Pro</strong>

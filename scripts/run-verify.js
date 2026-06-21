@@ -25,36 +25,25 @@ const steps = [
   }
 ];
 
-// Ensure node_modules/.bin is on PATH so tools like eslint are found in
-// spawned subprocesses (the pre-push hook context may not include it).
-const localBin = path.resolve('node_modules', '.bin');
-const augmentedPath = `${localBin}${path.delimiter}${process.env.PATH ?? ''}`;
-
-// When npm_execpath is set (we were launched by npm run), invoke npm as
-// `node <npm-cli-path> <args>` so we use the exact same npm binary.
-// When running directly via `node scripts/run-verify.js`, just call `npm`
-// from PATH — no node wrapper needed.
-const npmExecPath = process.env.npm_execpath;
-function buildSpawnArgs(stepArgs) {
-  if (npmExecPath) {
-    const nodeExe = `"${process.execPath}"`;
-    const npmCli = npmExecPath.includes(' ') ? `"${npmExecPath}"` : npmExecPath;
-    return { cmd: nodeExe, args: [npmCli, ...stepArgs] };
-  }
-  return { cmd: 'npm', args: stepArgs };
-}
+// npm_execpath is set by npm when running scripts, pointing to npm-cli.js.
+// When present we invoke it via process.execPath (node) without a shell so
+// Windows paths with spaces (e.g. C:\Program Files\nodejs\node.exe) are
+// passed directly to the OS and never mangled by cmd.exe's tokeniser.
+// When absent (running as `node scripts/run-verify.js`) we fall back to
+// 'npm' via shell, which resolves npm.cmd/.ps1 through PATH.
+const npmCliPath = process.env.npm_execpath;
 
 for (const step of steps) {
-  const { cmd, args } = buildSpawnArgs(step.args);
-  const result = spawnSync(cmd, args, {
-    stdio: 'inherit',
-    shell: true,
-    env: {
-      ...process.env,
-      PATH: augmentedPath,
-      ...step.env
-    }
-  });
+  const result = npmCliPath
+    ? spawnSync(process.execPath, [npmCliPath, ...step.args], {
+        stdio: 'inherit',
+        env: { ...process.env, ...step.env }
+      })
+    : spawnSync('npm', step.args, {
+        stdio: 'inherit',
+        shell: true,
+        env: { ...process.env, ...step.env }
+      });
 
   if (result.status !== 0) {
     process.exit(result.status ?? 1);
