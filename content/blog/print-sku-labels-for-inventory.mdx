@@ -1,0 +1,90 @@
+---
+title: "How to Print SKU Labels for Inventory Shelves"
+slug: print-sku-labels-for-inventory
+description: "Turn a SKU spreadsheet into print-ready shelf and bin labels in minutes, without desktop label software."
+publishedAt: "2026-06-21"
+updatedAt: "2026-06-21"
+tags: ["SKU labels", "inventory", "shelf labels", "CSV"]
+keyword: print sku labels for inventory
+intent: task completion
+draft: false
+---
+
+Shelf and bin labeling sounds simple but gets tedious quickly when you have a large inventory. Entering each SKU into a barcode generator one at a time is slow and error-prone at scale.
+
+The practical solution is to start from a spreadsheet. If your SKUs are already in a CSV, you can generate a full sheet of barcode labels in minutes.
+
+## What a good shelf or bin label needs
+
+An effective shelf or bin label should:
+
+- Display a scannable barcode of the SKU or location code
+- Show the SKU as readable text in case the scanner fails or is unavailable
+- Include a short product name or bin description for quick visual identification
+- Fit the physical label size without crowding
+
+Avery 5160 labels (2.625 x 1 inch, 30 per sheet) work well for this. They are large enough for a readable Code 128 barcode and a short text line, and small enough to stick neatly to most shelf edges or bin fronts.
+
+## Step 1: Build your SKU CSV
+
+Start from your inventory spreadsheet. You need at least one column with the SKU or location code. A product name or bin description column is optional but useful.
+
+Example:
+
+```
+sku,name
+SHELF-A01,Shelf A Row 1
+SHELF-A02,Shelf A Row 2
+SHELF-B01,Shelf B Row 1
+BIN-C04,Overflow Bin C4
+```
+
+Filter the spreadsheet to include only the locations or products you need labels for. Printing a full refresh of all your labels at once is fine too.
+
+## Step 2: Export as CSV
+
+If you are starting from Excel, go to File > Save As > CSV (Comma delimited). If you are starting from Google Sheets, go to File > Download > Comma Separated Values.
+
+If your inventory system exports CSV directly (many warehouse management tools do), use that file.
+
+## Step 3: Paste and preview
+
+Go to [Print barcode labels from CSV](/print-barcode-labels-from-csv) and paste your CSV.
+
+Select `sku` (or whichever column has your barcode values) as the barcode column. The preview shows your full label sheet immediately.
+
+Check a few labels before exporting:
+
+- Does the barcode render cleanly for each row?
+- Is the SKU or code visible as text below the barcode?
+- Is the product name or description readable and not truncated?
+
+## Step 4: Export and print
+
+When the preview looks right, export the PDF. Print on Avery 5160 label sheets, US Letter paper, with printer scaling set to 100%.
+
+If this is a first run for a new shelf layout, print one sheet and apply those labels to confirm fit before printing the full batch.
+
+## Tips for shelf label durability
+
+Standard Avery 5160 labels are paper with permanent adhesive. They hold up well for indoor shelving in stable environments.
+
+For stockrooms or environments with humidity or temperature variation, consider laser-rated labels designed for those conditions, or apply a clear overlay tape over the label after printing.
+
+## FAQ
+
+**How many SKU labels can I print in one batch?**
+
+As many as your CSV has rows. Each row becomes one label. A CSV with 300 rows produces a PDF with 10 pages at 30 labels each.
+
+**Can I mix shelf labels and product labels in the same batch?**
+
+Yes. As long as both types of codes are in the same column, they all go into the same label sheet. You can separate them when applying them physically.
+
+**My inventory system exports codes with leading zeros. Will they print correctly?**
+
+If you are pasting CSV text directly, the values paste as shown. If Excel has stripped leading zeros before you exported the file, format the column as Text in Excel and re-export before pasting.
+
+---
+
+For Shopify-specific product export steps, see [Shopify barcode labels from CSV](/blog/shopify-barcode-labels-from-csv). For the general CSV-to-label process, see [How to print barcode labels from a CSV](/blog/print-barcode-labels-from-csv).

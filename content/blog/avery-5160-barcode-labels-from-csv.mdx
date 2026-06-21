@@ -1,0 +1,87 @@
+---
+title: "Avery 5160 Barcode Labels from CSV: Get Print Alignment Right"
+slug: avery-5160-barcode-labels-from-csv
+description: "Generate a PDF that fits Avery 5160 label sheets precisely. Preview every label before you print to avoid wasted sheets."
+publishedAt: "2026-06-21"
+updatedAt: "2026-06-21"
+tags: ["Avery 5160", "barcode labels", "CSV", "print alignment"]
+keyword: avery 5160 barcode labels from csv
+intent: format-specific workflow
+draft: false
+---
+
+Avery 5160 is the most common address label sheet in the US: 30 labels per page, 3 across, 10 rows down, on US Letter paper. It is also a standard layout for small barcode labels in most inventory and ecommerce workflows.
+
+The challenge with any label sheet is alignment. Labels that print even slightly off-center are wasteful and professionally awkward. This guide covers how to generate a well-aligned PDF from a CSV and how to confirm alignment before committing to a full print run.
+
+## Avery 5160 label dimensions
+
+For reference:
+
+- Label size: 2.625 inches wide by 1 inch tall
+- Layout: 3 columns, 10 rows
+- Labels per sheet: 30
+- Paper size: US Letter (8.5 x 11 inches)
+
+These dimensions matter because the PDF must match them exactly. A PDF that is even a few millimeters off will cause every row to drift further from the label boundary as you move down the page.
+
+## Step 1: Prepare your CSV
+
+Your CSV needs at least one column with the barcode value. Common choices:
+
+- SKU or product code
+- Internal product ID
+- Bin or shelf number
+
+Keep the header row. Export from Excel or Google Sheets as CSV if you are starting from a spreadsheet application.
+
+## Step 2: Paste and preview
+
+Go to [Print barcode labels from CSV](/print-barcode-labels-from-csv) and paste your CSV. Select the barcode column and review the live preview immediately.
+
+The preview renders every label on the Avery 5160 layout. Check a few labels in different positions (top left, center, bottom right) to confirm the barcode and text sit within the label boundary.
+
+## Step 3: Test-print before your full run
+
+This is the step most people skip and later regret.
+
+Export the PDF and print one page on plain paper. Then:
+
+1. Hold the plain paper up to an Avery 5160 sheet against a light source
+2. Check whether the printed content falls inside the label outlines on the sheet
+3. If they are off, adjust your printer settings (no scaling, no fit-to-page, US Letter paper size)
+
+Most alignment issues come from printer scaling. Setting the print dialog to 100% actual size and turning off "fit to printable area" options usually resolves them.
+
+## Step 4: Print on Avery 5160 sheets
+
+Once the test page confirms alignment, load your Avery 5160 sheets and print the full PDF.
+
+If you are printing multiple pages, fan the sheets slightly before loading them to reduce the chance of misfeeds.
+
+## What fits on a 5160 label
+
+At 2.625 x 1 inch, each label holds:
+
+- A Code 128 barcode (the symbol itself is roughly 1.5 to 2 inches wide at standard size)
+- One or two short lines of text: product name, SKU, or description
+
+Long product names will truncate or shrink. Keep label text short: a concise SKU or code paired with an abbreviated name is the most readable layout at that size.
+
+## FAQ
+
+**My labels are printing slightly low on every row. What should I check?**
+
+This almost always comes from printer scaling or bottom margin settings. Check your print dialog: set page scaling to "None" or "100%" and confirm the paper size is US Letter.
+
+**Can I reprint individual labels from a partially used sheet?**
+
+You can feed a partially used sheet through the printer, but alignment is less reliable on partial sheets. It is usually easier to print a full sheet and discard the unused labels.
+
+**Does this work with generic 30-label-per-sheet stock?**
+
+Yes, as long as the dimensions match Avery 5160: 2.625-inch wide by 1-inch tall labels on US Letter paper. Many generic brands use these exact dimensions.
+
+---
+
+For the general CSV-to-label process, see [How to print barcode labels from a CSV](/blog/print-barcode-labels-from-csv). For batch printing from a larger inventory list, see [Bulk barcode generator from spreadsheet](/blog/bulk-barcode-generator-from-spreadsheet).

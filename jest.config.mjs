@@ -7,7 +7,12 @@ const createJestConfig = nextJest({
 const customJestConfig = {
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/src/test/setup.ts'],
-  testPathIgnorePatterns: ['/node_modules/', 'tests.e2e'],
+  // Explicitly scope to src/ so the Playwright e2e spec in tests/e2e/ is
+  // never picked up by Jest (testPathIgnorePatterns alone is unreliable on
+  // Windows due to backslash path normalisation in Jest's regex engine).
+  testRegex: ['src/.*\\.test\\.[jt]sx?$', 'scripts/.*\\.test\\.[jt]sx?$'],
+  roots: ['<rootDir>/src', '<rootDir>/scripts'],
+  testPathIgnorePatterns: ['<rootDir>/tests/e2e/'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1'
   },

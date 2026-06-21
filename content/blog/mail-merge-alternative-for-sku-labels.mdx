@@ -1,0 +1,86 @@
+---
+title: "Skip Mail Merge: A Faster Way to Print SKU Barcode Labels"
+slug: mail-merge-alternative-for-sku-labels
+description: "Mail merge works for address labels, but it is cumbersome for barcode labels. Here is the direct alternative."
+publishedAt: "2026-06-21"
+updatedAt: "2026-06-21"
+tags: ["mail merge", "barcode labels", "SKU", "alternative"]
+keyword: mail merge alternative for barcode labels
+intent: alternative / task completion
+draft: false
+---
+
+Mail merge was designed for personalizing letters and envelopes at scale. It does that job well. But when people try to use it for barcode labels, the workflow gets complicated fast: installing barcode fonts in Word, linking a spreadsheet, configuring label templates, and troubleshooting font rendering problems that are difficult to diagnose without a scanner.
+
+For SKU labels and inventory barcodes, there is a simpler path.
+
+## Why mail merge is awkward for barcode labels
+
+A mail merge barcode label workflow in Word (or Google Docs with add-ons) typically requires:
+
+1. Installing a barcode font or a third-party add-on
+2. Creating a label template that applies the font correctly to a merged field
+3. Configuring the data source connection to your spreadsheet
+4. Generating the merge and checking each page for encoding issues
+5. Exporting to PDF or printing directly
+
+The barcode font step is where most people get stuck. Font-based barcodes require specific text formatting to encode values correctly. The output is also difficult to verify visually without scanning a test label.
+
+The result is often 30 to 60 minutes of setup for a workflow that should take five.
+
+## The direct approach: CSV to barcode label
+
+Instead of routing your spreadsheet data through a word processor, you can bring the CSV directly to a label generator.
+
+The steps:
+
+1. Have your SKUs or product codes in a CSV file
+2. Paste the CSV into the label tool
+3. Select the barcode column
+4. Review the rendered barcode labels in the live preview
+5. Export the PDF
+
+The tool handles encoding, rendering, and layout. You see the actual rendered barcode in the preview, not a font substitution. If a code renders incorrectly, you see it before printing.
+
+## Example: SKU labels without mail merge
+
+Say you have this CSV from your inventory system:
+
+```
+sku,product_name
+SKU-2201,Blue Widget
+SKU-2202,Red Widget
+SKU-2203,Green Widget
+```
+
+Paste that into [CSV to Labels](/print-barcode-labels-from-csv) and select `sku`. Each row becomes a label with the SKU encoded as a Code 128 barcode. The product name can appear as text on the label.
+
+Two minutes from paste to PDF, no barcode fonts required.
+
+## When mail merge is still the right tool
+
+Mail merge is appropriate when:
+
+- You are printing address labels with variable name and address fields
+- You need complex conditional formatting that changes between rows
+- Your organization already has a working mail merge barcode template that does what you need
+
+If you have already invested in a working mail merge barcode setup and it serves your needs, there is no reason to change it. This guide is for people who have not yet set one up and want to know if there is a faster path.
+
+## FAQ
+
+**Can I include the product name on the barcode label?**
+
+Yes. If your CSV has a name column, it can appear as text on the label alongside the barcode. Select the code column as the barcode value during setup.
+
+**What barcode format does the tool use?**
+
+The tool generates Code 128 barcodes. Code 128 is compatible with standard handheld and fixed-mount scanners and supports the alphanumeric SKU formats most businesses use.
+
+**Do I need to install any fonts or plugins?**
+
+No. The tool generates barcodes directly in the browser. No fonts, plugins, or add-ons are required.
+
+---
+
+For the complete CSV-to-label workflow, see [How to print barcode labels from a CSV](/blog/print-barcode-labels-from-csv). For Excel-specific instructions, see [Create barcode labels from Excel](/blog/create-barcode-labels-from-excel).
