@@ -1,4 +1,5 @@
 import type { LabelRow } from '../lib/csv';
+import { BarcodeCanvas } from './BarcodeCanvas';
 
 type LabelPreviewProps = {
   rows: LabelRow[];
@@ -19,12 +20,7 @@ export function LabelPreview({ rows }: LabelPreviewProps) {
             className="grid min-h-32 gap-2 rounded-2xl border border-dashed border-[rgba(31,27,22,0.2)] bg-[rgba(248,241,228,0.85)] p-4"
             key={row.id}
           >
-            <div
-              aria-hidden="true"
-              className="min-h-10 overflow-hidden rounded-lg bg-[repeating-linear-gradient(90deg,#1f1b16_0,#1f1b16_2px,transparent_2px,transparent_4px)] text-transparent"
-            >
-              {row.code}
-            </div>
+            <BarcodeCanvas code={row.code} />
             <strong>{row.name || row.code}</strong>
             {row.price && <span>{row.price}</span>}
           </div>
