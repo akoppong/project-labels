@@ -18,7 +18,10 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   turbopack: {
     root: rootDirectory
-  }
+  },
+  // marked ships as ESM-only. transpilePackages causes nextJest to exclude it
+  // from the blanket /node_modules/ transformIgnorePatterns so Jest can compile it.
+  transpilePackages: ['marked'],
 };
 
 export default nextConfig;

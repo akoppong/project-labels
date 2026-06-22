@@ -18,7 +18,11 @@ const customJestConfig = {
   },
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
-    '!src/app/**',
+    // Exclude Next.js framework entry points — they depend on the Next.js runtime
+    // and are covered by Playwright e2e tests instead.
+    '!src/app/**/page.tsx',
+    '!src/app/**/layout.tsx',
+    '!src/app/not-found.tsx',
     '!src/test/**',
     '!src/**/*.test.{ts,tsx}'
   ],

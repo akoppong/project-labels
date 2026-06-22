@@ -14,11 +14,28 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://csvtolabels.com'),
   title: {
     default: 'CSV Barcode Label PDF Generator',
-    template: '%s | CSV to Labels'
+    template: '%s | CSV to Labels',
   },
-  description: 'Turn CSV product data into printable barcode labels.'
+  description: 'Turn CSV product data into printable barcode labels.',
+  openGraph: {
+    siteName: 'CSV to Labels',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
 };
 
 export default function RootLayout({

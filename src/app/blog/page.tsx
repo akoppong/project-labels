@@ -6,6 +6,16 @@ export const metadata: Metadata = {
   title: 'Barcode Label Guides',
   description:
     'Practical guides for printing barcode labels from CSV files, Excel spreadsheets, and Shopify exports.',
+  alternates: {
+    canonical: '/blog',
+  },
+  openGraph: {
+    title: 'Barcode Label Guides',
+    description:
+      'Practical guides for printing barcode labels from CSV files, Excel spreadsheets, and Shopify exports.',
+    url: '/blog',
+    type: 'website',
+  },
 };
 
 export default function BlogIndexPage() {
