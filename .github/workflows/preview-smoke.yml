@@ -32,7 +32,20 @@ jobs:
         env:
           PREVIEW_URL: ${{ github.event.deployment_status.environment_url }}
 
+      - name: Check bypass secret is configured
+        id: bypass
+        env:
+          VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+        run: |
+          if [ -z "$VERCEL_AUTOMATION_BYPASS_SECRET" ]; then
+            echo "::warning::VERCEL_AUTOMATION_BYPASS_SECRET is not set. Smoke tests skipped — Vercel deployment protection will block requests. Add the secret from Vercel project settings → Deployment Protection."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Run preview smoke suite
+        if: steps.bypass.outputs.skip != 'true'
         env:
           PLAYWRIGHT_BASE_URL: ${{ github.event.deployment_status.environment_url }}
           VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}

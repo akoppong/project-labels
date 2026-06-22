@@ -149,4 +149,5 @@ Before treating the repo as release-ready:
 5. Set `NEXT_PUBLIC_STRIPE_EXPORT_PASS_LINK` and `NEXT_PUBLIC_STRIPE_PRO_LINK` in Vercel preview and production environments.
 6. Set Vercel Node runtime to `22.17.1`.
 7. Confirm Vercel deployments appear as GitHub deployment statuses so the preview and production smoke workflows trigger.
-8. If production promotion must be blocked until smoke checks pass, enable Vercel Deployment Checks for the selected GitHub Actions.
+8. **Set `VERCEL_AUTOMATION_BYPASS_SECRET` as a GitHub Actions secret.** Get the value from Vercel project settings → Deployment Protection → Automation Bypass Protection. Without this, smoke tests skip with a warning rather than running — both preview and production smoke are non-functional until it is set.
+9. If production promotion must be blocked until smoke checks pass, enable Vercel Deployment Checks for the selected GitHub Actions.
