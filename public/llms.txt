@@ -1,0 +1,38 @@
+# csvtolabels
+
+> csvtolabels turns CSV or spreadsheet data into print-ready PDF barcode labels on Avery 5160 sheets using Code 128 barcodes. It runs entirely in the browser, with a free live preview and paid PDF export (a 7-day Export Pass or a monthly Pro plan via Stripe).
+
+Key facts:
+
+- Input: a CSV file (exported from Excel, Google Sheets, Shopify, or any spreadsheet).
+- Output: a print-ready PDF aligned to Avery 5160 label sheets (30 labels per US Letter page).
+- Barcode symbology: Code 128, suitable for internal SKUs and product IDs (no GS1 registration required).
+- Pricing: free preview of every label in the browser; paid PDF export via Stripe, either a 7-day Export Pass ($19.97) or a monthly Pro plan ($24.97/mo).
+- No desktop label software, no account, and no Shopify app required.
+
+## Core pages
+
+- [Home / label generator](https://csvtolabels.com/): Turn a CSV into printable barcode labels. Upload, preview, export to PDF.
+- [Blog](https://csvtolabels.com/blog): Guides on printing barcode and SKU labels from CSV and spreadsheet data.
+
+## Use-case pages
+
+- [Bulk barcode generator from CSV](https://csvtolabels.com/bulk-barcode-generator): Generate printable Code 128 barcode labels from a CSV file.
+- [Barcode label generator](https://csvtolabels.com/barcode-label-generator): Create Avery 5160 barcode label sheets from product codes.
+- [Code 128 barcode generator](https://csvtolabels.com/code-128-barcode-generator): Generate Code 128 barcode labels from SKUs and internal product IDs.
+- [Print barcode labels from CSV](https://csvtolabels.com/print-barcode-labels-from-csv): Turn spreadsheet rows into a print-ready barcode label PDF.
+- [Shopify barcode labels from CSV](https://csvtolabels.com/shopify-barcode-labels-from-csv): Create barcode labels from a Shopify product export CSV.
+- [Official UPC barcodes and GS1](https://csvtolabels.com/official-upc-barcodes): Why official UPC and GTIN identifiers should come from GS1.
+
+## Blog
+
+- [How to Print Barcode Labels from a CSV File](https://csvtolabels.com/blog/print-barcode-labels-from-csv): Turn any spreadsheet into print-ready Avery 5160 barcode labels without mail merge or desktop label software.
+- [Bulk Barcode Generator: Print Multiple Labels from a Spreadsheet](https://csvtolabels.com/blog/bulk-barcode-generator-from-spreadsheet): Generate Code 128 barcodes in bulk from a CSV file. Preview free, export to PDF when ready.
+- [Shopify Barcode Labels from CSV: A Step-by-Step Guide](https://csvtolabels.com/blog/shopify-barcode-labels-from-csv): Export your Shopify product list and turn it into printable barcode labels without installing a Shopify app.
+- [Avery 5160 Barcode Labels from CSV: Get Print Alignment Right](https://csvtolabels.com/blog/avery-5160-barcode-labels-from-csv): Generate a PDF that fits Avery 5160 label sheets precisely, with a preview of every label before you print.
+- [Code 128 Barcode Labels for Inventory](https://csvtolabels.com/blog/code-128-barcode-labels-for-inventory): Why Code 128 is the practical choice for internal inventory labels and how to generate them from a CSV.
+- [Barcode Label Software: When You Need It and When You Don't](https://csvtolabels.com/blog/barcode-label-software-alternative): For CSV-based label printing, a browser tool skips the setup and cost of desktop software.
+- [Skip Mail Merge: A Faster Way to Print SKU Barcode Labels](https://csvtolabels.com/blog/mail-merge-alternative-for-sku-labels): The direct alternative to cumbersome mail merge for barcode labels.
+- [Create Barcode Labels from Excel or Google Sheets](https://csvtolabels.com/blog/create-barcode-labels-from-excel): Export Excel or Google Sheets data as CSV and generate printable Avery 5160 barcode labels in a browser.
+- [Barcode Labels for Internal Product IDs](https://csvtolabels.com/blog/barcode-labels-for-internal-product-ids): Internal product IDs do not need GS1 registration. How to generate printable labels from your own identifiers.
+- [How to Print SKU Labels for Inventory Shelves](https://csvtolabels.com/blog/print-sku-labels-for-inventory): Turn a SKU spreadsheet into print-ready shelf and bin labels in minutes.

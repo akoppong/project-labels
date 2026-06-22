@@ -58,6 +58,8 @@ The pre-push hook enforces this, but run it manually first.
 
 **Review gates after every package:** spec review first (did we build what was approved?), code review second (correctness, type safety, payment safety). Do not start the next package with open critical issues.
 
+**Keep `public/llms.txt` current:** when a change significantly alters the product — new or removed pages, blog posts, pricing, supported barcode symbology or label formats, or the core value proposition — update `public/llms.txt` to match. Keep its links and descriptions in sync with `sitemap.xml`, the marketing pages in `data/pages.ts`, and the blog MDX frontmatter.
+
 **Human gates — stop and ask before:**
 - Proceeding after a `REVISE` or `STOP` product challenge result
 - Adding live Stripe Payment Links
