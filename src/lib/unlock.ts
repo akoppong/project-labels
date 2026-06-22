@@ -1,18 +1,16 @@
 export type PlanId = 'export-pass' | 'pro';
 
-function getEnvValue(key: string) {
-  return process.env[key]?.trim() || null;
-}
-
 export function isUnlockedFromSearch(search: string): boolean {
   const params = new URLSearchParams(search);
   return params.get('unlock') === 'pro' || params.get('unlock') === 'export-pass';
 }
 
+// Static property access is required — bundlers only inline NEXT_PUBLIC_ vars
+// for direct `process.env.VAR` access, not dynamic `process.env[key]` bracket notation.
 export function getCheckoutUrl(planId: PlanId): string | null {
   if (planId === 'pro') {
-    return getEnvValue('NEXT_PUBLIC_STRIPE_PRO_LINK');
+    return process.env.NEXT_PUBLIC_STRIPE_PRO_LINK?.trim() || null;
   }
 
-  return getEnvValue('NEXT_PUBLIC_STRIPE_EXPORT_PASS_LINK');
+  return process.env.NEXT_PUBLIC_STRIPE_EXPORT_PASS_LINK?.trim() || null;
 }
