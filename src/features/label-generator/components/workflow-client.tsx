@@ -10,9 +10,9 @@ import { parseCsv } from '@/lib/csv';
 import { isUnlockedFromSearch } from '@/lib/unlock';
 
 const sampleCsv = `sku,name,price
-SKU-1001,Blue Shirt,24.00
-SKU-1002,Canvas Tote,18.00
-SKU-1003,Coffee Beans,14.99`;
+SKU-1001,Blue Shirt,$24.00
+SKU-1002,Canvas Tote,$18.00
+SKU-1003,Coffee Beans,$14.99`;
 
 const unlockStorageKey = 'csvtolabels-unlocked';
 
@@ -31,6 +31,9 @@ export function WorkflowClient() {
   const parsed = useMemo(() => parseCsv(csv), [csv]);
 
   useEffect(() => {
+    // TODO(post-10-customers): Soft unlock — persisted client-side only.
+    // No account or server-side verification backs this. Replace with
+    // webhook-backed entitlements after 10 paying customers. See lib/unlock.ts.
     if (isUnlockedFromSearch(window.location.search)) {
       window.localStorage.setItem(unlockStorageKey, 'true');
     }

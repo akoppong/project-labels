@@ -1,3 +1,13 @@
+// TODO(post-10-customers): Replace this soft unlock with webhook-backed
+// entitlements. This validation version grants access purely client-side:
+// Stripe Payment Link success URL redirects to `?unlock=...`, which is then
+// persisted to localStorage (see workflow-client.tsx). There is no account,
+// no server-side verification, and no link between a live Stripe subscription
+// and the unlock — so a Pro subscriber who clears their browser or switches
+// devices loses access while still being billed, and anyone visiting
+// `?unlock=pro` unlocks for free. Migrate to Stripe Checkout + webhook +
+// Supabase entitlements once we have 10 paying customers.
+// See docs/launch/stripe-setup.md.
 export type PlanId = 'export-pass' | 'pro';
 
 export function isUnlockedFromSearch(search: string): boolean {
