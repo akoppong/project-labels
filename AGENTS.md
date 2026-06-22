@@ -65,7 +65,7 @@ The pre-push hook enforces this, but run it manually first.
 - Running paid ads
 - Expanding scope beyond the approved plan
 
-**Never:** commit to `main` directly · delete files without permission · add `any` types · add page-level inline styles · chain shell commands with `&&` on Windows · use em dashes in user-facing copy
+**Never:** commit to `main` directly · delete files without permission · add `any` types · add page-level inline styles · chain shell commands with `&&` on Windows · use em dashes in user-facing copy · add Claude/AI attribution (`🤖 Generated with Claude Code`, `Co-Authored-By: Claude …`) to commits or PRs
 
 ---
 
